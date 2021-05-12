@@ -21,8 +21,10 @@
     <meta name="twitter:site" content="@jtscodes">
     <meta name="twitter:creator" content="@jtscodes">
 
+
     <link rel="stylesheet" href="app.scss">
     <link rel="stylesheet" href="locomotive.css">
+
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous"></script> -->
 
@@ -35,53 +37,63 @@
 </head>
 
 <body>
-    <nav class='nav'>
 
-        <a class='nav-link' href='#'>About</a>
-        <a class='nav-link' href='#'>Work</a>
-        <a class='nav-link' href='#'>Contact</a>
-        <a class='nav-link logo' href='#'><strong>JORDAN SMITH</strong> Digital</a>
+    <button class="switch" data-switch-dark aria-hidden>Night mode</button>
+
+    <nav class='nav'>
+        <button class='nav-link' id='link-about'>About</button>
+        <button class='nav-link' id='link-work'>Work</button>
+        <button class='nav-link' id='link-contact'>Contact</button>
+        <button class='nav-link logo' id='link-header'><strong>JORDAN SMITH</strong> Digital</button>
     </nav>
 
-    <div data-scroll-container class='scroll-container'>
+    <main>
+        <article>
 
+            <div data-scroll-container class='scroll-container'>
+        
+                <section data-scroll-section class='wire'>
+        
+                    <div class='spacer'></div>
+                    <div data-scroll class='header wire'>
+                        <div data-scroll class='left wire' data-scroll-id='scroll-tracker' >
+                            <h1 class='outline' data-scroll data-scroll-speed='5'>JORDAN SMITH</h1>
+                            <h1 class='outline' data-scroll data-scroll-speed='7'>Digital</h1>
+                        </div>
+                        <div data-scroll class='right wire'>
+                            <p class='intro' data-scroll data-scroll-speed='3' data-scroll-direction='horizontal'>
+                                Hey there!  I'm <strong>Jordan,</strong> a Full-Stack Software Engineer & Web Designer in Austin, Texas. <br>
+                                <br>
+                                Building things every day is my passion, and I'm always on the lookout for cool new technologies or tools to use.<br>
+                                <br>
+                                I'm currently <strong>seeking a full-time Software Engineering role,</strong> so if you're hiring, please reach out!<br>
+                                <br>
+                                I'm also available for freelance web development or design work.
+                            </p>
+                        </div>
+                    </div>
+                    <div class='vertical-divider-30'></div>
+                    <div class='spacer'></div><div class='spacer'></div>
+                   
+                </section>
+        
 
-       
-
-
-        <section data-scroll-section class='wire'>
-            <div class='spacer'></div>
-            <div data-scroll class='header wire'>
-                <div data-scroll class='left wire'>
-                    <h1 class='outline' data-scroll data-scroll-speed='5'>JORDAN SMITH</h1>
-                    <h1 class='outline' data-scroll data-scroll-speed='7'>Digital</h1>
-                </div>
-                <div data-scroll class='right wire'>
-                    <p class='intro' data-scroll data-scroll-speed='3' data-scroll-direction='horizontal'>
-                        Hey there!  I'm <strong>Jordan,</strong> a Full-Stack Software Engineer & Web Designer in Austin, Texas. <br>
-                        <br>
-                        Building things every day is my passion, and I'm always on the lookout for cool new technologies or tools to use.<br>
-                        <br>
-                        I'm currently <strong>seeking a full-time Software Engineering role,</strong> so if you're hiring, please reach out!<br>
-                        <br>
-                        I'm also available for freelance web development or design work.
-                    </p>
-                </div>
+                <section data-scroll-section id='js-target-work'>
+        
+                    <h1 class='outline-right' data-scroll data-scroll-speed='5'>WORK.</h1>
+        
+                </section> 
+        
+        
             </div>
-            <div class='vertical-divider-30'></div>
-            <div class='spacer'></div>
-
-            <h1 class='outline' data-scroll data-scroll-speed='2.6'>JORDAN SMITH</h1>
-        </section>
+        
 
 
 
-        <div data-scroll-section class='wire' id='js-scroll-target'>
 
-        </div>
-
-    </div>
-
+        </article>
+    </main>
+    
 
 <script src='./app.js'></script>
 </body>

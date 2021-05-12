@@ -1,16 +1,53 @@
 import LocomotiveScroll from 'locomotive-scroll';
 
-// Document fade-in
+// Document Fade
 document.body.className += ' fade-out';
 $(function() {
     $('body').removeClass('fade-out');
 });
 
+// Theme switch
+document.querySelector('[data-switch-dark]').addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+  });
+
+// New Scroll Instance
 const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
-    lerp: 0.06
+    lerp: 0.06,
+    scrollFromAnywhere: true
 });
 
-// const target = document.querySelector('#js-scroll-target');
-// scroll.scrollTo(target);
+
+// Select Link
+
+
+
+// Scroll Anchors
+// Header Section
+$( '#link-header' ).click(function() {
+    scroll.scrollTo('top');
+});
+
+// Work Section
+const workTarget = $( '#js-target-work' );
+const linkWork = $( '#link-work' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0.17
+    // console.log(height, offset);
+    scroll.scrollTo(workTarget[0], { offset: offset });
+
+});
+
+
+
+// Scroll Progress
+scroll.on('scroll', (args) => {
+
+    if(typeof args.currentElements['scroll-tracker'] === 'object') {
+        let progress = args.currentElements['scroll-tracker'].progress;
+        // console.log(progress);
+
+    }
+});
