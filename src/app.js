@@ -34,7 +34,7 @@ $( '#link-header' ).click(function() {
 const workTarget = $( '#js-target-work' );
 const linkWork = $( '#link-work' ).click(function() {
     const height = $( window ).height();
-    const offset = height * -0.17
+    const offset = height * -0;
     // console.log(height, offset);
     scroll.scrollTo(workTarget[0], { offset: offset });
 

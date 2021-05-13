@@ -38,61 +38,71 @@
 
 <body>
 
-    <button class="switch" data-switch-dark aria-hidden>Night mode</button>
+<button class="switch" data-switch-dark aria-hidden>Dark</button>
 
-    <nav class='nav'>
-        <button class='nav-link' id='link-about'>About</button>
-        <button class='nav-link' id='link-work'>Work</button>
-        <button class='nav-link' id='link-contact'>Contact</button>
-        <button class='nav-link logo' id='link-header'><strong>JORDAN SMITH</strong> Digital</button>
-    </nav>
+<nav class='nav'>
+    <button class='nav-link' id='link-about'>About</button>
+    <button class='nav-link' id='link-work'>Work</button>
+    <button class='nav-link' id='link-contact'>Contact</button>
+    <button class='nav-link logo' id='link-header'><strong>JORDAN SMITH</strong> Digital</button>
+</nav>
 
-    <main>
-        <article>
+<main>
+<article>
+<div data-scroll-container class='scroll-container'>
 
-            <div data-scroll-container class='scroll-container'>
-        
-                <section data-scroll-section class='wire'>
-        
-                    <div class='spacer'></div>
-                    <div data-scroll class='header wire'>
-                        <div data-scroll class='left wire' data-scroll-id='scroll-tracker' >
-                            <h1 class='outline' data-scroll data-scroll-speed='5'>JORDAN SMITH</h1>
-                            <h1 class='outline' data-scroll data-scroll-speed='7'>Digital</h1>
-                        </div>
-                        <div data-scroll class='right wire'>
-                            <p class='intro' data-scroll data-scroll-speed='3' data-scroll-direction='horizontal'>
-                                Hey there!  I'm <strong>Jordan,</strong> a Full-Stack Software Engineer & Web Designer in Austin, Texas. <br>
-                                <br>
-                                Building things every day is my passion, and I'm always on the lookout for cool new technologies or tools to use.<br>
-                                <br>
-                                I'm currently <strong>seeking a full-time Software Engineering role,</strong> so if you're hiring, please reach out!<br>
-                                <br>
-                                I'm also available for freelance web development or design work.
-                            </p>
-                        </div>
-                    </div>
-                    <div class='vertical-divider-30'></div>
-                    <div class='spacer'></div><div class='spacer'></div>
-                   
-                </section>
-        
-
-                <section data-scroll-section id='js-target-work'>
-        
-                    <h1 class='outline-right' data-scroll data-scroll-speed='5'>WORK.</h1>
-        
-                </section> 
-        
-        
+    <!--Region [Blue] Header and Intro -->
+    <section data-scroll-section class='section'>
+        <div data-scroll class='header'>
+            <div data-scroll class='left wire' data-scroll-id='scroll-tracker' >
+                <h1 class='outline' data-scroll data-scroll-speed='3'>JORDAN SMITH</h1>
+                <h1 class='outline' data-scroll data-scroll-speed='7'>Digital</h1>
             </div>
-        
+            <div data-scroll class='right wire'>
+                <p class='intro' data-scroll data-scroll-speed='-3' data-scroll-direction='horizontal'>
+                    Hey there!  I'm <strong>Jordan,</strong> a Full-Stack Software Engineer & Web Designer in Austin, Texas. <br>
+                    <br>
+                    Building things every day is my passion, and I'm always on the lookout for cool new technologies or tools to use.<br>
+                    <br>
+                    I'm currently <strong>seeking a full-time Software Engineering role,</strong> so if you're hiring, please reach out!<br>
+                    <br>
+                    I'm also available for freelance web development or design work.
+                </p>
+            </div>
+        </div>
+        <div class='vertical-divider-30'></div>
+    </section>
+    <!--Endregion-->
+
+    <!--Region [Violet] Clique -->
+    <section data-scroll-section class='section' id='js-target-work'>
+
+        <div data-scroll data-scroll-speed='-6' data-scroll-direction='horizontal' class='project-sidebar'>
+            <img src='./img/Trapezoid-Trans.png' alt='Translucent Trapezoid' class='trapezoid'>
+            <h1 class='heading'>01/ Clique</h1>
+            <h3 class='tech'>MongoDB | Express | React | Node</h3>
+            <p class='description'>Clique is a social chat application that
+                visualizes users as hexagonal tokens and chat spaces as slots than
+                they can fit into.  Users can chat with other people in their channel (clique), search for other cliques, or create their own.  Interacting with other users in a clique makes it grow in size.<br>
+                <br>
+                <i>This app is a work-in-progress.<br>
+                Demo coming soon</i><br>
+                <br>
+
+            </p>
+        </div>
+        <div data-scroll data-scroll-speed='3' class='project-image-container'>
+            <img src='./img/Clique-Portfolio-Mockup.png' alt='Clique App Screenshot'> 
+        </div>
+    </section> 
+    <!--Endregion-->
 
 
 
 
-        </article>
-    </main>
+</div>
+</article>
+</main>
     
 
 <script src='./app.js'></script>
