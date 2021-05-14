@@ -20,7 +20,16 @@ const scroll = new LocomotiveScroll({
 });
 
 
-// Select Link
+
+// Reset scroll on window resize
+$( window ).resize(function() {
+    scroll.update();
+  });
+
+
+
+
+// Anchor navigator (next/prev)
 
 
 
