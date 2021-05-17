@@ -42,7 +42,7 @@ $( '#link-about' ).click(function() {
 
 });
 
-// Work Section
+// PROJECTS
 const p1Target = $( '#project-1' );
 $( '#link-work-1' ).click(function() {
     const height = $( window ).height();
@@ -83,6 +83,33 @@ $( '#link-contact' ).click(function() {
     scroll.scrollTo(contactTarget[0], { offset: offset });
 
 });
+
+
+// Project images show/hide
+$( '#trnkt-image' ).hide();
+$( '#trnkt' ).mouseenter(function() {
+    $( '#trnkt-image' ).fadeIn();
+});
+$( '#trnkt' ).mouseout(function() {
+    $( '#trnkt-image').fadeOut();
+});
+
+$( '#throw-6-image' ).hide();
+$( '#throw-6' ).mouseenter(function() {
+    $( '#throw-6-image' ).fadeIn();
+});
+$( '#throw-6' ).mouseout(function() {
+    $( '#throw-6-image').fadeOut();
+});
+
+$( '#clique-image' ).hide();
+$( '#clique' ).mouseenter(function() {
+    $( '#clique-image' ).fadeIn();
+});
+$( '#clique' ).mouseout(function() {
+    $( '#clique-image').fadeOut();
+});
+
 
 
 
