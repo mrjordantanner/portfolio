@@ -16,20 +16,14 @@ const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
     lerp: 0.06,
-    scrollFromAnywhere: true
+    scrollFromAnywhere: true,
+    getSpeed: true
 });
 
+// On scroll 
+// scroll.on('scroll', (obj) => {
 
-
-// Reset scroll on window resize
-$( window ).resize(function() {
-    scroll.update();
-  });
-
-
-
-
-// Anchor navigator (next/prev)
+// });
 
 
 
@@ -39,24 +33,65 @@ $( '#link-header' ).click(function() {
     scroll.scrollTo('top');
 });
 
-// Work Section
-const workTarget = $( '#js-target-work' );
-const linkWork = $( '#link-work' ).click(function() {
+// About Section
+const aboutTarget = $( '#intro' );
+$( '#link-about' ).click(function() {
     const height = $( window ).height();
     const offset = height * -0;
-    // console.log(height, offset);
-    scroll.scrollTo(workTarget[0], { offset: offset });
+    scroll.scrollTo(aboutTarget[0], { offset: offset });
+
+});
+
+// Work Section
+const p1Target = $( '#project-1' );
+$( '#link-work-1' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0;
+    scroll.scrollTo(p1Target[0], { offset: offset });
+
+});
+
+const p2Target = $( '#project-2' );
+$( '#link-work-2' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0;
+    scroll.scrollTo(p2Target[0], { offset: offset });
+
+});
+
+const p3Target = $( '#project-3' );
+$( '#link-work-3' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0;
+    scroll.scrollTo(p3Target[0], { offset: offset });
+
+});
+
+const p4Target = $( '#project-4' );
+$( '#link-work-4' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0;
+    scroll.scrollTo(p4Target[0], { offset: offset });
+
+});
+
+// Contact Section
+const contactTarget = $( '#contact' );
+$( '#link-contact' ).click(function() {
+    const height = $( window ).height();
+    const offset = height * -0;
+    scroll.scrollTo(contactTarget[0], { offset: offset });
 
 });
 
 
 
 // Scroll Progress
-scroll.on('scroll', (args) => {
+// scroll.on('scroll', (args) => {
 
-    if(typeof args.currentElements['scroll-tracker'] === 'object') {
-        let progress = args.currentElements['scroll-tracker'].progress;
-        // console.log(progress);
+//     if(typeof args.currentElements['scroll-tracker'] === 'object') {
+//         let progress = args.currentElements['scroll-tracker'].progress;
+//         // console.log(progress);
 
-    }
-});
+//     }
+// });
