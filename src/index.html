@@ -22,8 +22,12 @@
     <meta name="twitter:creator" content="@jtscodes">
 
     <link rel="stylesheet" href="app.scss">
-    
+    <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic-mouse-1.1.css" />
+
+  
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous"></script> -->
+
+
 
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -41,11 +45,10 @@
 
 <nav class='nav'>
     <button class='link' id='link-contact'>Contact</button>
-    <button class='link' id='link-work-4'>Four</button>
-    <button class='link' id='link-work-3'>Three</button>
-    <button class='link' id='link-work-2'>Two</button>
-    <button class='link' id='link-work-1'>One</button>
-
+    <button class='project-link' id='link-work-4'>4</button>
+    <button class='project-link' id='link-work-3'>3</button>
+    <button class='project-link' id='link-work-2'>2</button>
+    <button class='project-link' id='link-work-1'>1</button>
     <button class='link' id='link-about'>About</button>
 </nav>
 
@@ -61,7 +64,7 @@
     <section data-scroll data-scroll-section class='section' id='header'>
         <div class='header'>
             <h1 class='headline' data-scroll data-scroll-speed='7'>JORDAN SMITH</h1>
-            <h3 class='subline-1' data-scroll data-scroll-speed='-10' data-scroll-direction='horizontal'>Software Engineer | Web Developer</h3>
+            <h3 class='subline-1' data-scroll data-scroll-speed='-10' data-scroll-direction='horizontal'>Software Engineer<span class='pipe'> | </span>Web Developer</h3>
             <h3 class='subline-2' data-scroll data-scroll-speed='-13' data-scroll-direction='horizontal'><i>Austin, Texas</i></h3>
         </div>
     </section>
@@ -77,7 +80,7 @@
                 <p class='line one' data-scroll data-scroll-speed='-6' data-scroll-direction='horizontal'>
                     <strong>I'm a Full-Stack Software Engineer & Web designer living in Austin, Texas.</strong></p>
                 <p class='line two' data-scroll data-scroll-speed='-7' data-scroll-direction='horizontal'>
-                    Building things every day is my passion, <br>and I'm always on the lookout for cool new technologies and tools to make things with.<br></p>
+                    I wake up every day ready to build stuff, <br>and I'm always on the lookout for cool new technologies and tools to make things with.<br></p>
                 <p class='line three' data-scroll data-scroll-speed='-8' data-scroll-direction='horizontal'>
                     <strong>I'm currently seeking a full-time Software Engineering role, so if you're hiring, please reach out!</strong></p>
                 <p class='line four' data-scroll data-scroll-speed='-9' data-scroll-direction='horizontal' >
@@ -91,10 +94,15 @@
     <!--Region [Purple] -->
     <section data-scroll data-scroll-section class='section' id='project-1'>
         <div class='project'>
+
+            <div data-scroll data-scroll-speed='8' class='header'>
+                <h1>01</h1>
+            </div>
+
             <div data-scroll data-scroll-speed='2' class='details'>
-                <h3 class='left'>NFT Art Explorer</h3>
-                <h3 class='right'>React | Node</h3>
-            </div> 
+                <h4 class='description'>NFT Art Explorer that uses the Opensea.io API</h4>
+                <h4 class='tech'>React<span class='pipe'> | </span>Node</h4>
+            </div>
 
             <div data-scroll data-scroll-speed='12' data-scroll-direction='horizontal'>
                 <a href='https://trnkt.herokuapp.com/' target='_blank' class='title' id='trnkt'>
@@ -106,8 +114,11 @@
             </div>
 
             <div class='image'>
-                <img src='./img/Clique-Portfolio-Mockup.png/' alt='trnkt-app image' id='trnkt-image'>
+                <img src='./img/trnkt.gif' alt='trnkt-app image' id='trnkt-image'>
             </div>
+
+
+
         </div>
     </section>
     <!--Endregion-->
@@ -118,14 +129,19 @@
     <!--Region [Purple] -->
     <section data-scroll-section class='section' id='project-2'>
         <div class='project'>
+
+            <div data-scroll data-scroll-speed='8' class='header'>
+                <h1>02</h1>
+            </div>
+
             <div data-scroll data-scroll-speed='2' class='details'>
-                <h3 class='left'>Dice Game</h3>
-                <h3 class='right'>JavaScript</h3>
-            </div> 
+                <h4 class='description'>Single player dice game built with vanilla JavaScript.</h4>
+                <h4 class='tech'>JavaScript<span class='pipe'> | </span>Animate.css</h4>
+            </div>
 
             <div data-scroll data-scroll-speed='12' data-scroll-direction='horizontal'>
                 <a href='https://mrjordantanner.github.io/throw-six/' target='_blank' class='title' id='throw-6'>
-                    THROW-6
+                    THROW6
                 </a>
             </div>
             <div data-scroll data-scroll-speed='5' data-scroll-direction='horizontal' class='link'>
@@ -133,7 +149,7 @@
             </div>
 
             <div class='image'>
-                <img src='./img/Clique-Portfolio-Mockup.png/' alt='throw-6-app image' id='throw-6-image'>
+                <img src='./img/throw-6.gif' alt='throw-6-app image' id='throw-6-image'>
             </div>
         </div>
     </section>
@@ -145,10 +161,44 @@
         <!--Region [Purple] -->
     <section data-scroll-section class='section' id='project-3'>
         <div class='project'>
+
+            <div data-scroll data-scroll-speed='8' class='header'>
+                <h1>03</h1>
+            </div>
+
             <div data-scroll data-scroll-speed='2' class='details'>
-                <h3 class='left'>Chat channels as clusters</h3>
-                <h3 class='right'>MongoDB | Express | React | Node</h3>
-            </div> 
+                <h4 class='description'>Full-stack Music Review App.  Worked on a team.</h4>
+                <h4 class='tech'>MongoDB<span class='pipe'> | </span>Express<span class='pipe'> | </span>React<span class='pipe'> | </span>Node</h4>
+            </div>
+
+            <div data-scroll data-scroll-speed='12' data-scroll-direction='horizontal'>
+                <a href='#' class='title' id='deep-dive'>
+                    deepDIVE
+                </a>
+            </div>
+            <div data-scroll data-scroll-speed='5' data-scroll-direction='horizontal' class='link'>
+                <a href='https://github.com/team-caffeine-dreams/frontend' target='_blank'>View Source Code</a>
+            </div>
+
+            <div class='image'>
+                <img src='./img/deepDive-1.png' alt='deep-dive-app image' id='deep-dive-image'>
+            </div>
+        </div>
+    </section>
+    <!--Endregion-->
+
+    <!--Region [Purple] -->
+    <section data-scroll-section class='section' id='project-4'>
+        <div class='project'>
+
+            <div data-scroll data-scroll-speed='8' class='header'>
+                <h1>04</h1>
+            </div>
+
+            <div data-scroll data-scroll-speed='2' class='details'>
+                <h4 class='description'>Full-stack Chat App with Game-ish Elements.  Demo available June 2021.</h4>
+                <h4 class='tech'>MongoDB<span class='pipe'> | </span>Express<span class='pipe'> | </span>React<span class='pipe'> | </span>Node</h4>
+            </div>
 
             <div data-scroll data-scroll-speed='12' data-scroll-direction='horizontal'>
                 <a href='#' class='title' id='clique'>
@@ -171,9 +221,50 @@
 
     <!--Region [Lime] -->
     <section data-scroll-section class='section' id='contact'>
+
         <div data-scroll data-scroll-speed='1' class='contact'>
-            <h1 class='header'>CONTACT</h1>
+            <div class='container'>
+                <a href='https://twitter.com/jtscodes' target='_blank' class='card' data-scroll data-scroll-speed='10'>
+                    <div class='text'>TWITTER</div>
+                </a>
+                <a href='https://www.linkedin.com/in/jordantanner/' target='_blank' class='card' data-scroll data-scroll-speed='20'>
+                    <div class='text'>LINKEDIN</div>
+                </a>
+                <a href='https://github.com/mrjordantanner' target='_blank'  class='card' data-scroll data-scroll-speed='30'>
+                    <div class='text'>GITHUB</div>
+                </a>
+                <a href='mailto:jordan@jordansmithdigital.com' target='_blank' class='card' data-scroll data-scroll-speed='40'>
+                    <div class='text'>EMAIL</div>
+                </a>
+                <!-- <a href='#' target='_blank' class='card' data-scroll data-scroll-speed='50'>
+                    <div class='text'>RESUME</div>
+                </a> -->
+            </div>
+
+            <footer class='footer-container'>
+                <h4 class='footer'>Site Design (c) 2021 -- Jordan T. Smith</h4>
+            </footer>
         </div>
+
+<!-- 
+        <div data-scroll data-scroll-speed='1' class='contact'>
+            <div data-scroll data-scroll-speed='2'>
+                <a href='mailto:jordan@jordansmithdigital.com' target='_blank'>
+                    <div class='email'></div>
+                </a>
+            </div>
+            <div data-scroll data-scroll-speed='3'>
+                <a href='https://twitter.com/jtscodes' target='_blank'>
+                    <div class='twitter'></div>
+                </a>
+            </div>
+            <div data-scroll data-scroll-speed='4'>
+                <a href='https://www.linkedin.com/in/jordantanner/' target='_blank'>
+                    <div class='linkedin'></div>
+                </a>
+            </div>
+
+        </div> -->
     </section>
     <!--Endregion-->
 
@@ -182,7 +273,8 @@
 </article>
 </main>
     
-
+<script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic_mouse-1.1.js"></script>
 <script src='./app.js'></script>
+
 </body>
 </html>

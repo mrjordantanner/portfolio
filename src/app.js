@@ -24,21 +24,29 @@ const scroll = new LocomotiveScroll({
 // scroll.on('scroll', (obj) => {
 
 // });
+// Magic mouse
+// options = {
+//     "cursorOuter": "circle-basic",
+//     "hoverEffect": "circle-move",
+//     "hoverItemMove": false,
+//     "defaultCursor": false,
+//     "outerWidth": 30,
+//     "outerHeight": 30
+//   }; 
+// magicMouse(options);
 
 
 
 // Scroll Anchors
 // Header Section
 $( '#link-header' ).click(function() {
-    scroll.scrollTo('top');
+    scroll.scrollTo('top', { duration: 2000 });
 });
 
 // About Section
 const aboutTarget = $( '#intro' );
 $( '#link-about' ).click(function() {
-    const height = $( window ).height();
-    const offset = height * -0;
-    scroll.scrollTo(aboutTarget[0], { offset: offset });
+    scroll.scrollTo(aboutTarget[0], {  });
 
 });
 
@@ -53,34 +61,26 @@ $( '#link-work-1' ).click(function() {
 
 const p2Target = $( '#project-2' );
 $( '#link-work-2' ).click(function() {
-    const height = $( window ).height();
-    const offset = height * -0;
-    scroll.scrollTo(p2Target[0], { offset: offset });
+    scroll.scrollTo(p2Target[0], { });
 
 });
 
 const p3Target = $( '#project-3' );
 $( '#link-work-3' ).click(function() {
-    const height = $( window ).height();
-    const offset = height * -0;
-    scroll.scrollTo(p3Target[0], { offset: offset });
+    scroll.scrollTo(p3Target[0], {  });
 
 });
 
 const p4Target = $( '#project-4' );
 $( '#link-work-4' ).click(function() {
-    const height = $( window ).height();
-    const offset = height * -0;
-    scroll.scrollTo(p4Target[0], { offset: offset });
+    scroll.scrollTo(p4Target[0], { });
 
 });
 
 // Contact Section
 const contactTarget = $( '#contact' );
 $( '#link-contact' ).click(function() {
-    const height = $( window ).height();
-    const offset = height * -0;
-    scroll.scrollTo(contactTarget[0], { offset: offset });
+    scroll.scrollTo(contactTarget[0], { duration: 2000 } );
 
 });
 
@@ -100,6 +100,14 @@ $( '#throw-6' ).mouseenter(function() {
 });
 $( '#throw-6' ).mouseout(function() {
     $( '#throw-6-image').fadeOut();
+});
+
+$( '#deep-dive-image' ).hide();
+$( '#deep-dive' ).mouseenter(function() {
+    $( '#deep-dive-image' ).fadeIn();
+});
+$( '#deep-dive' ).mouseout(function() {
+    $( '#deep-dive-image').fadeOut();
 });
 
 $( '#clique-image' ).hide();

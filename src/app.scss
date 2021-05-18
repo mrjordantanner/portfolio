@@ -5,7 +5,6 @@
 }
 
 // FONTS AND TEXT STYLES
-@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 @mixin outline {
@@ -33,11 +32,14 @@
 }
 
 @font-face {
-    font-family: DelaGothicOne;
-    src: url(./fonts/DelaGothicOne-Regular.ttf) format("");
+    font-family: Akzidensk Bold;
+    src: url(./fonts/AkzidenzGrotesk-Bold.otf) format("");
 }
 
-
+@font-face {
+    font-family: Akzidensk Extra Bold;
+    src: url(./fonts/AkzidenzGrotesk-ExtraBold.otf) format("");
+}
 
 //Region [Blue]
 /*! locomotive-scroll v4.1.1 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
@@ -118,43 +120,54 @@ html.has-scroll-smooth {
 // VARIABLES ----
 // Fonts
 $font-primary:'Akzidensk', sans-serif;
-$font-h1: 'Akzidensk', sans-serif;
+$font-h1: 'Akzidensk Bold', sans-serif;
 $font-h3: 'Akzidensk', sans-serif;
+$font-h4: 'Akzidensk Light', sans-serif;
 $font-p: 'Akzidensk Light', sans-serif;
 
 // Colors
 $link-dark: cyan;
-$link-light: black;
+$link-light: rgb(0, 0, 255);
 
-$bg-dark: rgba(0, 0, 50, 1);
-$bg-light: rgb(216, 192, 192);
+$bg-dark: rgb(57, 60, 87);
+$bg-light: rgb(255, 255, 255);
 
-$primary-dark: rgb(255, 245, 170);
+$primary-dark: rgb(255, 255, 255);
 $primary-light: rgb(0, 0, 0);
 
-$secondary-dark: rgb(241, 170, 255);
-$secondary-light: rgb(0, 12, 138);
+$secondary-dark: rgb(216, 42, 109);
+$secondary-light: rgb(62, 62, 62);
 
 $color-divider: rgb(147, 156, 175);
+
+// Theme Set 1
+// $bg-dark: rgba(0, 0, 50, 1);
+// $bg-light: rgb(216, 192, 192);
+
+// $primary-dark: rgb(255, 245, 170);
+// $primary-light: rgb(0, 0, 0);
+
+// $secondary-dark: rgb(241, 170, 255);
+// $secondary-light: rgb(0, 12, 138);
 
 
 // Light Theme
 :root {
     --scrollbar-opacity: 0.5;
-    --color-background: #{$bg-dark};
-    --color-primary: #{$primary-dark};
-    --color-secondary: #{$secondary-dark};
-    --color-link: #{$link-dark};
+    --color-background: #{$bg-light};
+    --color-primary: #{$primary-light};
+    --color-secondary: #{$secondary-light};
+    --color-link: #{$link-light};
 
 }
 
 // Dark Theme
 .dark {
     --scrollbar-opacity: 0.5;
-    --color-background: #{$bg-light};
-    --color-primary: #{$primary-light};
-    --color-secondary: #{$secondary-light};
-    --color-link: #{$link-light};
+    --color-background: #{$bg-dark};
+    --color-primary: #{$primary-dark};
+    --color-secondary: #{$secondary-dark};
+    --color-link: #{$link-dark};
 
 }
 
@@ -204,6 +217,12 @@ body {
         font-size: 1.75rem;
     }
 
+    h4 {
+        font-family: $font-h4;
+        font-weight: 100;
+        font-size: 1.25rem;
+    }
+
     p, h1, h2, h3, h4, h5, h6 {
         padding: 0px;
         margin: 0px;
@@ -228,7 +247,7 @@ body.fade-out {
 
 
 // LINES AND DIVIDERS
-.vertical-divider-30 {
+.vertical-line-30 {
     display: block;
     position: fixed;
     height:100vh;
@@ -237,33 +256,9 @@ body.fade-out {
     background: $color-divider;
 }
 
-.horizontal-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    width: 60%;
-    height: 50px;
-    font-size: 20px;
-}
-
-.section-top-liner {
-    position: absolute;
-    top: 10vh;
-    left: 40px;
-    margin: 0vh 0rem 0rem 0rem;
-    padding: 0rem;
+.pipe {
     font-weight: bold;
-
-    .line {
-        position: absolute;
-        top: 33px;
-        left: 200px;
-        width: calc(90vw - 200px);
-        border-bottom: 2px solid var(--color-primary);
-    }
+    color: var(--color-primary);
 }
 
 
@@ -276,6 +271,7 @@ body.fade-out {
     transition: 0.15s all;
     background: transparent;
     border: none;
+    font-size: 1rem;
     
     &:hover {
         opacity: 0.5;
@@ -295,11 +291,12 @@ body.fade-out {
     z-index: 1;
     padding: 0rem;
     margin: 0px;
+    user-select: none;
 }
 
 .nav {
     @include nav;
-    right: -115px;
+    right: -85px;
     top: 475px;
 
     button {
@@ -310,6 +307,12 @@ body.fade-out {
     .link {
         @include link;
         padding: 0rem 0.5rem;
+    }
+
+    .project-link {
+        @include link;
+        padding: 0rem 0.5rem;
+        transform: rotate(90deg);
     }
     
 }
@@ -343,6 +346,8 @@ a {
     font-weight: bold;
     color: var(--color-link);
 }
+
+
 //endregion
 
 
@@ -354,7 +359,7 @@ a {
     align-items: center; 
     min-height: 100vh;
     width: 100%;
-    border-bottom: 1px solid gray;
+    // border-bottom: 1px solid gray;
 }
 .section {
     @include section; 
@@ -378,67 +383,6 @@ a {
     width: 50%;
     height: 100vh;
     border: 1px solid yellow;
-
-    @mixin quad {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 3rem;
-        border: 1px solid red;
-    }
-
-    .upper-left {
-        @include quad;
-        height: 50%;
-        justify-content: flex-end;
-        align-items: flex-start;
-
-    }
-
-    .upper-right {
-        @include quad;
-        height: 50%;
-        justify-content: flex-end;
-        align-items: flex-end;
-    }
-
-    .center {
-        @include quad;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .center-left {
-        @include quad;
-        height: 100%;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .center-right {
-        @include quad;
-        height: 100%;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    .lower-left {
-        @include quad;
-        height: 100%;
-        justify-content: flex-end;
-        align-items: flex-start;
-    }
-
-    .lower-right {
-        @include quad;
-        height: 100%;
-        justify-content: flex-end;
-        align-items: flex-end;
-
-    }
-
-
 }
 //endregion
 
@@ -488,46 +432,19 @@ a {
 //Region [Midnight]
 .intro {
 
-    // .headline-1 {
-    //     @include outline;
-    //     text-align: right;
-    //     // font-size: 8vmax;
-    //     font-size: 10rem;
-    //     // margin: 10vh 10vw 0rem 2vmin;
-    //     padding: 0rem;
-    //     width: 100%;
-    // }
-
-    // .headline-2 {
-    //     @include outline;
-    //     text-align: right;
-    //     // font-size: 8vmax;
-    //     font-size: 10rem;
-    //     // margin: 0vh 10vw 0rem 0vmin;
-    //     padding: 0rem;
-    //     width: 100%;
-    // }
-
-    // .subline {
-    //     font-size: 2vmin;
-    //     text-align: left;
-    //     margin: 0vh 15vw 0rem 0vmax;
-    //     padding: 0rem;
-    // }
-
     .name {
         color: var(--color-secondary);
         text-align: right;
-        margin: 55vh 0vw 0rem 0vmax;
+        margin: 40vh 0vw 0rem 0vmax;
         padding: 0rem;
         width: 90vw;
     }
 
     .body {
         text-align: right;
-        margin: 5vh 10rem 0rem 0vw;
+        margin: 5vh 20rem 0rem 0vw;
         padding: 0rem;
-        width: 95vw;
+        width: 87vw;
 
         .line {
             text-align: right;
@@ -545,6 +462,8 @@ a {
 
         .three {
             margin-left: 16vw;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 0px;
         }
 
         .four {
@@ -558,31 +477,50 @@ a {
 // PROJECT
 //Region [Purple]
 .project {
-    margin: 70vh 0vw 0vw 0vw; 
+    margin: 57vh 0vw 10vh 10vw; 
     // border: 4px solid blue;
     width: 38rem;
     height: 25vh;
 
+    .header {
+        // @include outline;
+        display: block;
+        position: absolute;
+        top: 825px;
+        right: 100px;
+        width: 8rem;
+        height: 8rem;
+        font-size: 8rem;
+    }
+
     .details {
         display: flex;
         justify-content: space-between;
-        // padding: 0 30px;
-        margin: -50px 0vw 0rem 0vmax;
-        width: 100%;
-        // border: 1px solid red;
+        // text-align: center;
+        margin: -30px 0vw 0rem -25px;
+        width: 90%;
+        // width: 650px;
+        // border: 1px red solid;
 
-        .left {
-            font-size: 1.5rem;
-            max-width: 50%;
+        .description {
+            align-self: flex-end;
+            // color: var(--color-secondary);
+            // font-size: 1.5rem;
+            font-style: italic;
+            width: 40%;
+            justify-content: center;
             text-align: left;
-            padding: 0 50px;
+            padding: 0px 0px;
         }
         
-        .right {
-            font-size: 1.5rem;
-            max-width: 50%;
+        .tech {
+            align-self: flex-end;
+            color: var(--color-secondary);
+            // font-size: 1.5rem;
+            // max-width: 50%;
             text-align: right;
             padding: 0 0px;
+            white-space: nowrap;
         }
     }
 
@@ -590,59 +528,108 @@ a {
         @include outline;
         display: block;
         position: absolute;
-        bottom: -235px;
-        left: -180px;
+        bottom: -215px;
+        left: -250px;
         font-size: 11rem;
-        border: 1px solid red;
         white-space: nowrap;
 
         &:hover {
             color: var(--color-primary);
             opacity: 1;
+            text-shadow: 8px 8px rgba(0,0,0, 0.2);
         }
     }
     
     .link {
         font-size: 1.25rem;
-        margin: 225px 0rem 0rem -170px;
-        // padding: 0rem;
-        // height: 2rem;
+        margin: 205px 0rem 0rem -170px;
         width: 50%;
-        // border: 4px solid blue;
     }
 
     .image {
-        // display: none;
         position: absolute;
-        top: 20%;
-        left: 5%;
+        top: 5vh;
+        right: 15vw;
         z-index: -1;
         opacity: 1;
+        transition: all 0.25s;
 
         img {
-            width: 50vw;
+            width: 70vw;
+            opacity: 0.85;
         }
     }
-
 }
-
 //endregion
 
-.show {
-    display: block;
-}
-
-.hide {
-    display: none;
-}
 
 // CONTACT
 //Region [Lime]
 .contact {
+    height: 100vh;
+    width: 100vw;
+    background: #373737;
 
-    .header {
-        @include outline;
+
+    .container {
+        display: flex;
+        height: 100vh;
+        width: 70vw;
+        margin: 12vh 15vw;
+        justify-content: space-evenly;
     }
+    
+
+    @mixin card {
+        height:70vh;
+        max-height: 800px;
+        width:10vw;
+        max-width: 200px;
+        border: 1px solid gray;
+        background: rgba(0,0,0, 0.2);
+        opacity: 1;
+        
+
+        &:hover {
+            cursor: pointer;
+            border: 1px solid white;
+        }
+    }
+
+    .card {
+        @include card;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .text {
+            transform: rotate(-90deg);
+            color: white;
+            font-size: 7vw;
+        }
+    }
+
+    .footer-container {
+        position: absolute;
+        bottom: 0px;
+        width: 100vw;
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+        }
+
+    }
+
+
+    
+
+
+
 
 
 }
