@@ -20,10 +20,28 @@ const scroll = new LocomotiveScroll({
     getSpeed: true
 });
 
-// On scroll 
-// scroll.on('scroll', (obj) => {
+// $( "#link-header" ).hide();
 
-// });
+// On scroll 
+scroll.on('scroll', (obj) => {
+
+    // Turn off nav link if at the top of the site
+    // if ($( "#header" ).hasClass( "is-inview" )) {
+    //     $( "#link-header" ).hide();
+    //     // console.log('header in view')
+    // }
+
+    // if (!$( "#header" ).hasClass( "is-inview" )) {
+    //     $( "#link-header" ).show();
+    //     console.log('header not in view')
+    // }
+
+    // console.log(scroll.scroll)
+
+
+});
+
+
 // Magic mouse
 // options = {
 //     "cursorOuter": "circle-basic",
@@ -34,6 +52,10 @@ const scroll = new LocomotiveScroll({
 //     "outerHeight": 30
 //   }; 
 // magicMouse(options);
+
+
+
+
 
 
 
