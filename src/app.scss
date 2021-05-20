@@ -124,31 +124,28 @@ $font-h1: 'Akzidensk Bold', sans-serif;
 $font-h3: 'Akzidensk', sans-serif;
 $font-h4: 'Akzidensk Light', sans-serif;
 $font-p: 'Akzidensk Light', sans-serif;
+$font-link: 'Akzidensk Bold', sans-serif;
 
 // Colors
 $link-dark: cyan;
-$link-light: rgb(0, 0, 255);
+$link-light: rgb(0, 38, 255);
 
 $bg-dark: rgb(57, 60, 87);
-$bg-light: rgb(255, 255, 255);
+$bg-light: rgb(211, 211, 231);
 
-$primary-dark: rgb(255, 255, 255);
-$primary-light: rgb(0, 0, 0);
+$primary-dark: rgb(211, 211, 231);
+$primary-light: rgb(57, 60, 87);
 
 $secondary-dark: rgb(216, 42, 109);
 $secondary-light: rgb(62, 62, 62);
 
 $color-divider: rgb(147, 156, 175);
 
-// Theme Set 1
-// $bg-dark: rgba(0, 0, 50, 1);
-// $bg-light: rgb(216, 192, 192);
+$bg-contact-light: rgb(21, 22, 43);
+$bg-contact-dark: rgb(43, 9, 43);
 
-// $primary-dark: rgb(255, 245, 170);
-// $primary-light: rgb(0, 0, 0);
-
-// $secondary-dark: rgb(241, 170, 255);
-// $secondary-light: rgb(0, 12, 138);
+$color-contact-light: rgb(211, 211, 231);
+$color-contact-dark: rgb(66, 75, 157);
 
 
 // Light Theme
@@ -158,6 +155,8 @@ $color-divider: rgb(147, 156, 175);
     --color-primary: #{$primary-light};
     --color-secondary: #{$secondary-light};
     --color-link: #{$link-light};
+    --color-bg-contact: #{$bg-contact-light};
+    --color-contact-color: #{$color-contact-light};
 
 }
 
@@ -168,6 +167,8 @@ $color-divider: rgb(147, 156, 175);
     --color-primary: #{$primary-dark};
     --color-secondary: #{$secondary-dark};
     --color-link: #{$link-dark};
+    --color-bg-contact: #{$bg-contact-dark};
+    --color-contact-color: #{$color-contact-dark};
 
 }
 
@@ -186,7 +187,6 @@ body {
     background: var(--color-background);
     color: var(--color-primary);
     margin: 0px;
-    padding: 0px 15px 0px 0px;
     opacity: 1;
     // transition: 0.5s opacity, background 0.5s ease;
     transition: background 1s cubic-bezier(.215,.61,.355,1),
@@ -195,13 +195,12 @@ body {
 
     p {
         font-family: $font-p;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         line-height: 1.25;
         font-weight: lighter;
     }
     
     h1 {
-        // @include outline;
         font-family: $font-h1;
         font-size: 8.5rem;
     }
@@ -229,10 +228,23 @@ body {
         pointer-events: none;
         color: var(--color-primary);
     }
+
+    header, footer {
+        padding: 0px;
+        margin: 0px;
+    }
     
     img {
         -webkit-user-drag: none;
     }
+
+    a {
+        text-decoration: none;
+        margin: 0px;
+        padding: 0px 1rem;
+        font-size: 1.25rem;
+    }
+
 }
 
 body.fade-out {
@@ -242,7 +254,7 @@ body.fade-out {
 
 .scroll-container {
     margin: 0px;
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 
@@ -264,7 +276,19 @@ body.fade-out {
 
 // NAVIGATION, LINKS, AND UI
 //Region [Black]
-@mixin link {
+.external-link {
+    font-weight: bold;
+    font-family: $font-link;
+    color: var(--color-link);
+    transition: all .15s;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+}
+
+@mixin nav-link {
     color: var(--color-primary);
     text-decoration: none;
     padding: 1rem;
@@ -272,6 +296,7 @@ body.fade-out {
     background: transparent;
     border: none;
     font-size: 1rem;
+    z-index: 20;
     
     &:hover {
         opacity: 0.5;
@@ -286,7 +311,6 @@ body.fade-out {
 
 @mixin nav {
     transform: rotate(-90deg);
-    display: absolute;
     position: fixed;
     z-index: 1;
     padding: 0rem;
@@ -296,21 +320,24 @@ body.fade-out {
 
 .nav {
     @include nav;
-    right: -85px;
-    top: 475px;
+    position: fixed;
+    width: 100vh;
+    right: -430px;
+    top: 47vh;
+    text-align: center;
 
     button {
-        @include link;
+        @include nav-link;
         padding: 0rem;
     }
 
     .link {
-        @include link;
+        @include nav-link;
         padding: 0rem 0.5rem;
     }
 
     .project-link {
-        @include link;
+        @include nav-link;
         padding: 0rem 0.5rem;
         transform: rotate(90deg);
     }
@@ -319,12 +346,13 @@ body.fade-out {
 
 .logo {
     @include nav;
-    @include link;
+    @include nav-link;
     right: -87px;
     top: 150px;
     font-size: 1.5rem;
     padding: 0rem;
 }
+
 
 
 .theme-switch {
@@ -339,12 +367,12 @@ body.fade-out {
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
-}
+    // transition: all 0.2s;
 
-a {
-    @include link;
-    font-weight: bold;
-    color: var(--color-link);
+    &:hover {
+        border: 2px solid  var(--color-primary);
+        font-weight: bold;
+    }
 }
 
 
@@ -353,23 +381,42 @@ a {
 
 // LAYOUT AND POSITIONING
 //region [Violet]
+@mixin fullscreen {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
 @mixin section {
     display: flex;
     flex-wrap: nowrap;
     align-items: center; 
+    height: 100vh;
     min-height: 100vh;
+    // border-bottom: 4px solid black;
     width: 100%;
-    // border-bottom: 1px solid gray;
+    padding: 0rem 0rem 0rem 0rem;
+    transition: background 3s;
+
 }
 .section {
     @include section; 
-    min-height: 100vh;
+}
+
+.section.is-inview {
+    // background: magenta;
 }
 
 .section-half {
     @include section; 
     height: 50vh;
     min-height: 50vh;
+    // border-bottom: 4px solid yellow;
+}
+
+.section-half.is-inview {
+    // background: chartreuse;
 }
 
 .section-double {
@@ -377,12 +424,12 @@ a {
     min-height: 200vh;
 }
 
-.split-section {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100vh;
-    border: 1px solid yellow;
+.desktop-only {
+    display: block!important
+}
+
+.mobile-only {
+    display: none!important
 }
 //endregion
 
@@ -392,16 +439,16 @@ a {
 // HEADER
 //Region [Blue]
 .header {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100vh;
-    
+    @include fullscreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+ 
     .headline {
         @include outline;
         text-align: left;
-        font-size: 10vw;
-        margin: 45vh 0rem 0rem 5vmin;
+        font-size: 9rem;
+        margin: 0px 0px 100px 30px;
         padding: 0rem;
         width: 100%;
         white-space: nowrap;
@@ -409,20 +456,22 @@ a {
     
     .subline-1 {
         color: var(--color-secondary);
-        font-size: 2vw;
+        font-size: 1.5rem;
         text-align: left;
-        margin: 6vmin 4rem 0rem 20vmax;
+        margin: 0px 0px 0px 400px;
         padding: 0rem;
+        width: 100%;
 
     }
 
     .subline-2 {
         color: var(--color-secondary);
-        font-size: 1.5vw;
+        font-size: 1.25rem;
         text-align: left;
-        margin: 0vmin 4rem 0rem 30vmax;
+        margin: 0px 0px 150px 600px;
         padding: 0rem;
         line-height: 2.25;
+        width: 100%;
     }
 
 }
@@ -435,16 +484,16 @@ a {
     .name {
         color: var(--color-secondary);
         text-align: right;
-        margin: 40vh 0vw 0rem 0vmax;
+        margin: 0vh 100px 0rem 0vmax;
         padding: 0rem;
         width: 90vw;
     }
 
     .body {
         text-align: right;
-        margin: 5vh 20rem 0rem 0vw;
-        padding: 0rem;
-        width: 87vw;
+        margin: 5vh 0px 0rem 0vw;
+        width: 80vw;
+
 
         .line {
             text-align: right;
@@ -453,110 +502,140 @@ a {
         }
 
         .one {
-            margin-left: 9vw;
+            margin-left: 7vw;
         }
 
         .two {
-            margin-left: 13vw;
+            margin-left: 11vw;
         }
 
         .three {
-            margin-left: 16vw;
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 0px;
+            margin-left: 14vw;
         }
 
         .four {
-            margin-left: 18vw;
+            margin-left: 17vw;
         }
     }
 }
 //endregion
 
 
+
 // PROJECT
 //Region [Purple]
 .project {
-    margin: 57vh 0vw 10vh 10vw; 
-    // border: 4px solid blue;
-    width: 38rem;
-    height: 25vh;
+    @include fullscreen;
 
     .header {
-        // @include outline;
-        display: block;
         position: absolute;
-        top: 825px;
-        right: 100px;
-        width: 8rem;
-        height: 8rem;
-        font-size: 8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 0 75px 0 0;
+        width: 100vw;
+        height: 100vh;
+
+        .text {
+            font-size: 9rem;
+            color: var(--color-secondary);
+        }
+
     }
 
-    .details {
+
+    .description-container {
+        @include fullscreen;
         display: flex;
-        justify-content: space-between;
-        // text-align: center;
-        margin: -30px 0vw 0rem -25px;
-        width: 90%;
-        // width: 650px;
-        // border: 1px red solid;
+        flex-direction: column;
+        align-items: flex-end;
 
         .description {
-            align-self: flex-end;
-            // color: var(--color-secondary);
-            // font-size: 1.5rem;
             font-style: italic;
-            width: 40%;
+            width: 100vw;
             justify-content: center;
-            text-align: left;
+            text-align: center;
             padding: 0px 0px;
+            margin: 0px;
+            width: 100vw;
+
         }
-        
+
+    }
+
+    .tech-container {
+        @include fullscreen;
+        display: flex;
+        flex-direction: column;
+
         .tech {
             align-self: flex-end;
             color: var(--color-secondary);
-            // font-size: 1.5rem;
-            // max-width: 50%;
-            text-align: right;
+            text-align: center;
             padding: 0 0px;
             white-space: nowrap;
+            background: yellow;
+            width: 100vw;
         }
+
     }
 
-    .title {
-        @include outline;
-        display: block;
+    .title-container {
+        @include fullscreen;
         position: absolute;
-        bottom: -215px;
-        left: -250px;
-        font-size: 11rem;
-        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
 
-        &:hover {
-            color: var(--color-primary);
-            opacity: 1;
-            text-shadow: 8px 8px rgba(0,0,0, 0.2);
+        .title {
+            @include outline;
+            margin: 0px 0px 30px 30px;
+            font-size: 11rem;
+            white-space: nowrap;
+            z-index: 1000;
+    
+            &:hover {
+                color: var(--color-primary);
+                opacity: 1;
+                text-shadow: 8px 8px rgba(0,0,0, 0.2);
+            }
         }
     }
-    
-    .link {
-        font-size: 1.25rem;
-        margin: 205px 0rem 0rem -170px;
-        width: 50%;
+
+    .link-container {
+        @include fullscreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        z-index: -10;
+
+        .link {
+            margin: 0px 0px 250px 80px;
+            font-size: 1.25rem;
+            width: 100%;
+            text-align: left;
+        }
     }
 
     .image {
+        width: 100vw;
+        height: 100vh;
         position: absolute;
-        top: 5vh;
-        right: 15vw;
-        z-index: -1;
+        top: 0vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -100;
         opacity: 1;
         transition: all 0.25s;
 
         img {
-            width: 70vw;
-            opacity: 0.85;
+            height: 100vh;
+            min-width: 100vw;
+            object-fit: cover;
+            margin: 0px 0vw;
+            opacity: 0.40;
         }
     }
 }
@@ -566,29 +645,30 @@ a {
 // CONTACT
 //Region [Lime]
 .contact {
-    height: 100vh;
-    width: 100vw;
-    background: #373737;
-
+    @include fullscreen;
+    background: var(--color-bg-contact);
+    color: var(--color-contact-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     .container {
         display: flex;
         height: 100vh;
         width: 70vw;
-        margin: 12vh 15vw;
+        margin: 0px 15vw;
         justify-content: space-evenly;
+        padding-top: 100px;
     }
-    
 
     @mixin card {
         height:70vh;
         max-height: 800px;
         width:10vw;
-        max-width: 200px;
+        max-width: 250px;
         border: 1px solid gray;
         background: rgba(0,0,0, 0.2);
         opacity: 1;
-        
 
         &:hover {
             cursor: pointer;
@@ -601,6 +681,7 @@ a {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        padding: 4rem 0rem;
 
         .text {
             transform: rotate(-90deg);
@@ -611,27 +692,23 @@ a {
 
     .footer-container {
         position: absolute;
-        bottom: 0px;
+        bottom: 1.5rem;
         width: 100vw;
 
         .footer {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             color: white;
-            padding: 2rem;
+            padding: 0rem 2rem;
+
+            .copyright {
+                color: white;
+            }
         }
 
     }
-
-
-    
-
-
-
-
-
 }
 
 //endregion
@@ -640,32 +717,108 @@ a {
 
 
 // MEDIA QUERIES
-//Region [Red]
-@media screen and (max-width: 1024px) and (orientation:portrait) {
+//Region [Magenta]
+// Vertical monitor
+@media screen and (max-width: 1081px) and (min-height: 1081px) {
 
+    .section {
+        // background: purple;
+    }
 
+    .nav {
+        right: -1180px;
+        top: 50vh;
+        text-align: center;
+    }
+
+    .header {
+        .headline {
+            font-size: 7.5rem;
+            margin: 0px 0px 275px 50px;
+        }
+        
+        .subline-1 {
+            font-size: 1.5rem;
+            margin: 0px 0px 0px 1100px;
+        }
+    
+        .subline-2 {
+            margin: 0px 0px 450px 1700px;
+            line-height: 2.25;
+        }
+    }
+
+    .intro {
+        .name {
+            margin: 0vh 100px 0rem 0vmax;
+            width: 90vw;
+        }
+    
+        .body {
+            text-align: right;
+            margin: 5vh 0px 0rem 0vw;
+            width: 80vw;
+        }
+    }
+
+    .project {
+        .title-container {
+            .title {
+                padding: 0vh 0vw 30px 30px;
+                font-size: 11rem;
+            }
+        }
+    }
+
+    .contact {
+        .container {
+            height: 100vh;
+            width: 70vw;
+            margin: 0px 15vw;
+            padding-top: 1000px;
+        }
+    }
+}
+
+// Macbook
+@media screen and (max-height: 780px)  {
+    .nav {
+        top: 60vh;
+        right: -340px;
+    }
+
+    .contact {
+        .container {
+            height: 100vh;
+            width: 70vw;
+            margin: 0px 15vw;
+            padding-top: 250px;
+        }
+    }
 
 
 }
 
 
+@media screen and (max-width: 1024px) and (orientation:portrait) {
 
+}
 
 @media screen and (min-width: 851px) and (max-width:1024px) {
 
-
-
-
-
 }
 
-
+ 
 
 @media screen and (max-width: 767px) {
 
+    .desktop-only {
+        display: none!important
+    }
 
-
-
+    .mobile-only {
+        display: block!important
+    }
 
 }
 //endregion
