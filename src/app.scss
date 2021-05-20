@@ -131,25 +131,21 @@ $link-dark: cyan;
 $link-light: rgb(0, 38, 255);
 
 $bg-dark: rgb(57, 60, 87);
-$bg-light: rgb(211, 211, 211);
+$bg-light: rgb(211, 211, 231);
 
-$primary-dark: rgb(255, 255, 255);
-$primary-light: rgb(0, 0, 0);
+$primary-dark: rgb(211, 211, 231);
+$primary-light: rgb(57, 60, 87);
 
 $secondary-dark: rgb(216, 42, 109);
 $secondary-light: rgb(62, 62, 62);
 
 $color-divider: rgb(147, 156, 175);
 
-// Theme Set 1
-// $bg-dark: rgba(0, 0, 50, 1);
-// $bg-light: rgb(216, 192, 192);
+$bg-contact-light: rgb(21, 22, 43);
+$bg-contact-dark: rgb(43, 9, 43);
 
-// $primary-dark: rgb(255, 245, 170);
-// $primary-light: rgb(0, 0, 0);
-
-// $secondary-dark: rgb(241, 170, 255);
-// $secondary-light: rgb(0, 12, 138);
+$color-contact-light: rgb(211, 211, 231);
+$color-contact-dark: rgb(66, 75, 157);
 
 
 // Light Theme
@@ -159,6 +155,8 @@ $color-divider: rgb(147, 156, 175);
     --color-primary: #{$primary-light};
     --color-secondary: #{$secondary-light};
     --color-link: #{$link-light};
+    --color-bg-contact: #{$bg-contact-light};
+    --color-contact-color: #{$color-contact-light};
 
 }
 
@@ -169,6 +167,8 @@ $color-divider: rgb(147, 156, 175);
     --color-primary: #{$primary-dark};
     --color-secondary: #{$secondary-dark};
     --color-link: #{$link-dark};
+    --color-bg-contact: #{$bg-contact-dark};
+    --color-contact-color: #{$color-contact-dark};
 
 }
 
@@ -201,7 +201,6 @@ body {
     }
     
     h1 {
-        // @include outline;
         font-family: $font-h1;
         font-size: 8.5rem;
     }
@@ -277,11 +276,6 @@ body.fade-out {
 
 // NAVIGATION, LINKS, AND UI
 //Region [Black]
-@mixin full {
-    width: 100vw;
-    height: 100vh;
-}
-
 .external-link {
     font-weight: bold;
     font-family: $font-link;
@@ -301,7 +295,7 @@ body.fade-out {
     transition: 0.15s all;
     background: transparent;
     border: none;
-    font-size: 1vmax;
+    font-size: 1rem;
     z-index: 20;
     
     &:hover {
@@ -328,10 +322,8 @@ body.fade-out {
     @include nav;
     position: fixed;
     width: 100vh;
-    // right: -115px;
-    // left: -115px;
-    left: 1000vw;
-    top: 50vh;
+    right: -430px;
+    top: 47vh;
     text-align: center;
 
     button {
@@ -375,6 +367,12 @@ body.fade-out {
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
+    // transition: all 0.2s;
+
+    &:hover {
+        border: 2px solid  var(--color-primary);
+        font-weight: bold;
+    }
 }
 
 
@@ -383,16 +381,22 @@ body.fade-out {
 
 // LAYOUT AND POSITIONING
 //region [Violet]
+@mixin fullscreen {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
 @mixin section {
     display: flex;
     flex-wrap: nowrap;
     align-items: center; 
     height: 100vh;
     min-height: 100vh;
-    // background: red;
-    border-bottom: 4px solid black;
+    // border-bottom: 4px solid black;
     width: 100%;
-    padding: 0rem 0rem 0rem 1rem;
+    padding: 0rem 0rem 0rem 0rem;
     transition: background 3s;
 
 }
@@ -408,8 +412,7 @@ body.fade-out {
     @include section; 
     height: 50vh;
     min-height: 50vh;
-    // background: blue;
-    border-bottom: 4px solid yellow;
+    // border-bottom: 4px solid yellow;
 }
 
 .section-half.is-inview {
@@ -420,13 +423,6 @@ body.fade-out {
     @include section; 
     min-height: 200vh;
 }
-
-// .split-section {
-//     display: flex;
-//     flex-direction: column;
-//     width: 50%;
-//     height: 100vh;
-// }
 
 .desktop-only {
     display: block!important
@@ -443,39 +439,39 @@ body.fade-out {
 // HEADER
 //Region [Blue]
 .header {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100vh;
-    
-    
+    @include fullscreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+ 
     .headline {
         @include outline;
         text-align: left;
-        font-size: 10rem;
-        margin: 45vh 0rem 0rem 5vmin;
+        font-size: 9rem;
+        margin: 0px 0px 100px 30px;
         padding: 0rem;
         width: 100%;
-        max-width: 70vw;
         white-space: nowrap;
     }
     
     .subline-1 {
         color: var(--color-secondary);
-        font-size: 1.75vw;
+        font-size: 1.5rem;
         text-align: left;
-        margin: 6vmin 4rem 0rem 20vmax;
+        margin: 0px 0px 0px 400px;
         padding: 0rem;
+        width: 100%;
 
     }
 
     .subline-2 {
         color: var(--color-secondary);
-        font-size: 1.5vw;
+        font-size: 1.25rem;
         text-align: left;
-        margin: 0vmin 4rem 0rem 30vmax;
+        margin: 0px 0px 150px 600px;
         padding: 0rem;
         line-height: 2.25;
+        width: 100%;
     }
 
 }
@@ -488,15 +484,14 @@ body.fade-out {
     .name {
         color: var(--color-secondary);
         text-align: right;
-        margin: 40vh 0vw 0rem 0vmax;
+        margin: 0vh 100px 0rem 0vmax;
         padding: 0rem;
         width: 90vw;
     }
 
     .body {
         text-align: right;
-        margin: 5vh 20rem 0rem 0vw;
-        padding: 0rem;
+        margin: 5vh 0px 0rem 0vw;
         width: 80vw;
 
 
@@ -507,21 +502,19 @@ body.fade-out {
         }
 
         .one {
-            margin-left: 9vw;
+            margin-left: 7vw;
         }
 
         .two {
-            margin-left: 13vw;
+            margin-left: 11vw;
         }
 
         .three {
-            margin-left: 16vw;
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 0px;
+            margin-left: 14vw;
         }
 
         .four {
-            margin-left: 18vw;
+            margin-left: 17vw;
         }
     }
 }
@@ -532,48 +525,38 @@ body.fade-out {
 // PROJECT
 //Region [Purple]
 .project {
-    // margin: 57vh 0vw 10vh 10vw; 
-    @include full;
-    // background: lightgray;
-    border: 1px 0px 1px 0px dotted #555555;
+    @include fullscreen;
 
     .header {
-        // @include outline;
-        // display: block;
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
-        // top: 660px;
-        // right: 100px;
-        padding: 0vh 75px 0 0;
+        padding: 0 75px 0 0;
         width: 100vw;
         height: 100vh;
-        // font-size: 8rem; 
-        font-size: 10rem;
-        color: var(--color-primary);
-       }
+
+        .text {
+            font-size: 9rem;
+            color: var(--color-secondary);
+        }
+
+    }
 
 
     .description-container {
-        @include full;
-        position: absolute;
+        @include fullscreen;
         display: flex;
         flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
+        align-items: flex-end;
 
         .description {
-            align-self: flex-end;
-            // color: var(--color-secondary);
-            // font-size: 1.5rem;
             font-style: italic;
             width: 100vw;
             justify-content: center;
             text-align: center;
             padding: 0px 0px;
-            background: blue;
             margin: 0px;
             width: 100vw;
 
@@ -582,12 +565,9 @@ body.fade-out {
     }
 
     .tech-container {
-        @include full;
-        position: absolute;
+        @include fullscreen;
         display: flex;
         flex-direction: column;
-        // justify-content: flex-end;
-        // align-items: flex-start;
 
         .tech {
             align-self: flex-end;
@@ -602,24 +582,18 @@ body.fade-out {
     }
 
     .title-container {
-        @include full;
+        @include fullscreen;
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: flex-start;
 
         .title {
             @include outline;
-            // position: absolute;
-            // bottom: -875px;
-            // left: 0px;
-
-            // top: 660px;
-            // right: 100px;
-            padding: 0vh 0vw 10vh 0vw;
+            margin: 0px 0px 30px 30px;
             font-size: 11rem;
             white-space: nowrap;
+            z-index: 1000;
     
             &:hover {
                 color: var(--color-primary);
@@ -627,41 +601,22 @@ body.fade-out {
                 text-shadow: 8px 8px rgba(0,0,0, 0.2);
             }
         }
-
-
     }
 
     .link-container {
-        @include full;
-        position: absolute;
+        @include fullscreen;
         display: flex;
         flex-direction: column;
-        // justify-content: flex-end;
-        // align-items: flex-start;
+        justify-content: flex-end;
+        z-index: -10;
 
-       // .link {
-            // align-self: flex-end;
-            // color: var(--color-secondary);
-            // text-align: center;
-            // padding: 0 0px;
-            // white-space: nowrap;
-            // background: yellow;
-            // width: 100vw;
-
-            .link {
-                position: absolute;
-                bottom: -175px;
-                left: 100px;
-                font-size: 1.25rem;
-                // margin: 205px 0rem 0rem -0px;
-                width: 50%;
-            }
-     //   }
-
+        .link {
+            margin: 0px 0px 250px 80px;
+            font-size: 1.25rem;
+            width: 100%;
+            text-align: left;
+        }
     }
-
-    
-
 
     .image {
         width: 100vw;
@@ -690,25 +645,27 @@ body.fade-out {
 // CONTACT
 //Region [Lime]
 .contact {
-    height: 100vh;
-    width: 100vw;
-    background: #373737;
-
+    @include fullscreen;
+    background: var(--color-bg-contact);
+    color: var(--color-contact-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     .container {
         display: flex;
         height: 100vh;
         width: 70vw;
-        margin: 12vh 15vw;
+        margin: 0px 15vw;
         justify-content: space-evenly;
+        padding-top: 100px;
     }
-    
 
     @mixin card {
         height:70vh;
         max-height: 800px;
         width:10vw;
-        max-width: 200px;
+        max-width: 250px;
         border: 1px solid gray;
         background: rgba(0,0,0, 0.2);
         opacity: 1;
@@ -724,7 +681,7 @@ body.fade-out {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 3rem 0rem;
+        padding: 4rem 0rem;
 
         .text {
             transform: rotate(-90deg);
@@ -735,7 +692,7 @@ body.fade-out {
 
     .footer-container {
         position: absolute;
-        bottom: 50px;
+        bottom: 1.5rem;
         width: 100vw;
 
         .footer {
@@ -744,7 +701,7 @@ body.fade-out {
             align-items: center;
             justify-content: flex-end;
             color: white;
-            padding: 0rem 3rem;
+            padding: 0rem 2rem;
 
             .copyright {
                 color: white;
@@ -760,11 +717,95 @@ body.fade-out {
 
 
 // MEDIA QUERIES
-//Region [Red]
+//Region [Magenta]
+// Vertical monitor
+@media screen and (max-width: 1081px) and (min-height: 1081px) {
+
+    .section {
+        // background: purple;
+    }
+
+    .nav {
+        right: -1180px;
+        top: 50vh;
+        text-align: center;
+    }
+
+    .header {
+        .headline {
+            font-size: 7.5rem;
+            margin: 0px 0px 275px 50px;
+        }
+        
+        .subline-1 {
+            font-size: 1.5rem;
+            margin: 0px 0px 0px 1100px;
+        }
+    
+        .subline-2 {
+            margin: 0px 0px 450px 1700px;
+            line-height: 2.25;
+        }
+    }
+
+    .intro {
+        .name {
+            margin: 0vh 100px 0rem 0vmax;
+            width: 90vw;
+        }
+    
+        .body {
+            text-align: right;
+            margin: 5vh 0px 0rem 0vw;
+            width: 80vw;
+        }
+    }
+
+    .project {
+        .title-container {
+            .title {
+                padding: 0vh 0vw 30px 30px;
+                font-size: 11rem;
+            }
+        }
+    }
+
+    .contact {
+        .container {
+            height: 100vh;
+            width: 70vw;
+            margin: 0px 15vw;
+            padding-top: 1000px;
+        }
+    }
+}
+
+// Macbook
+@media screen and (max-height: 780px)  {
+    .nav {
+        top: 60vh;
+        right: -340px;
+    }
+
+    .contact {
+        .container {
+            height: 100vh;
+            width: 70vw;
+            margin: 0px 15vw;
+            padding-top: 250px;
+        }
+    }
+
+
+}
+
+
 @media screen and (max-width: 1024px) and (orientation:portrait) {
+
 }
 
 @media screen and (min-width: 851px) and (max-width:1024px) {
+
 }
 
  
