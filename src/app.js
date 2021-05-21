@@ -23,9 +23,9 @@ const scroll = new LocomotiveScroll({
 // $( "#link-header" ).hide();
 
 // On scroll 
-scroll.on('scroll', (obj) => {
+// scroll.on('scroll', (obj) => {
 
-    // Turn off nav link if at the top of the site
+    //// Turn off nav link if at the top of the site
     // if ($( "#header" ).hasClass( "is-inview" )) {
     //     $( "#link-header" ).hide();
     //     // console.log('header in view')
@@ -39,7 +39,7 @@ scroll.on('scroll', (obj) => {
     // console.log(scroll.scroll)
 
 
-});
+// });
 
 
 // Magic mouse

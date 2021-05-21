@@ -11,23 +11,21 @@
     <meta property="og:type" content="article" /> 
     <meta property="og:title" content="Jordan Smith | Software Engineering Portfolio" />
     <meta property="og:description" content="Welcome to my portfolio!  Hire me to build your next app or website or to work full time on your team at your startup or tech company." />
-    <!-- <meta property="og:image" content="LINK TO THE IMAGE FILE" /> -->
+    <meta property="og:image" content="../public/android-chrome-512x512.png" />
     <meta property="og:url" content="https://www.jordansmithdigital.com/" />
     <meta property="og:site_name" content="Jordan Smith Digital" />
 
     <meta name="twitter:title" content="Jordan Smith | Software Engineering Portfolio">
     <meta name="twitter:description" content="Welcome to my portfolio!  Hire me to build your next app or website or to work full time on your team at your startup or tech company.">
-    <!-- <meta name="twitter:image" content="LINK TO IMAGE"> -->
+    <meta name="twitter:image" content="../public/android-chrome-512x512.png" />
     <meta name="twitter:site" content="@jtscodes">
     <meta name="twitter:creator" content="@jtscodes">
 
+    <link rel="icon" 
+      type="image/png" 
+      href="../public/favicon-32x32.png"/>
+
     <link rel="stylesheet" href="app.scss">
-    <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic-mouse-1.1.css" />
-
-  
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous"></script> -->
-
-
 
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -40,8 +38,8 @@
 <body>
 
     <!--Region [Black] Nav and UI  -->
-<button class="theme-switch" data-switch-dark aria-hidden>Vibe</button>
-    <nav class='nav'>
+<button class='theme-switch desktop-only' data-switch-dark aria-hidden>Vibe</button>
+    <nav class='nav desktop-only'>
         <button class='link' id='link-contact'>Contact</button>
         <button class='project-link' id='link-work-4'>4</button>
         <button class='project-link' id='link-work-3'>3</button>
@@ -50,19 +48,18 @@
         <button class='link' id='link-about'>About</button>
     </nav>
 
-<button class='logo' id='link-header'><strong>JORDAN SMITH</strong> Digital</button>
+<button class='logo desktop-only' id='link-header'><strong>JORDAN SMITH</strong> Digital</button>
     <!--Endregion-->
 
 <main>
-<article>
+<article class='desktop-only'>
 <div data-scroll-container class='scroll-container'>
-
 
     <!--Region [Blue] Site Header  -->
     <section data-scroll data-scroll-section class='section' id='header'>
         <div class='header'>
             <h1 class='headline' data-scroll data-scroll-speed='7'>JORDAN SMITH</h1>
-            <h3 class='subline-1' data-scroll data-scroll-speed='-10' data-scroll-direction='horizontal'>Software Engineer<span class='pipe'> | </span>Web Developer & Designer</h3>
+            <h3 class='subline-1' data-scroll data-scroll-speed='-10' data-scroll-direction='horizontal'>Software Engineer<span class='pipe'> | </span>Web Developer</h3>
             <h3 class='subline-2' data-scroll data-scroll-speed='-13' data-scroll-direction='horizontal'><i>Austin, Texas</i></h3>
         </div>
     </section>
@@ -77,7 +74,7 @@
                 <h2 class='line one' data-scroll data-scroll-speed='-1' data-scroll-direction='horizontal'>
                     <strong>I'm a Full-Stack Software Engineer & Web Designer living in Austin, Texas.</strong></h2>
                 <h3 class='line two' data-scroll data-scroll-speed='-2' data-scroll-direction='horizontal'>
-                    I wake up every day ready to build stuff, <br>and I'm always on the lookout for cool new technologies and tools to use.<br></h3>
+                    I wake up every day ready to build things, <br>and I'm always on the lookout for cool new technologies and tools.<br></h3>
                 <h3 class='line three' data-scroll data-scroll-speed='-3' data-scroll-direction='horizontal'>
                     <strong>I'm currently seeking a Software Engineering role, so if you're hiring, please reach out!</strong></h3>
                 <h3 class='line four' data-scroll data-scroll-speed='-4' data-scroll-direction='horizontal' >
@@ -223,14 +220,13 @@
                 <a href='mailto:jordan@jordansmithdigital.com' target='_blank' class='card' data-scroll data-scroll-speed='20'>
                     <div class='text'>EMAIL</div>
                 </a>
-                <!-- <a href='#' target='_blank' class='card' data-scroll data-scroll-speed='25'>
+                <a href='https://docs.google.com/document/d/1pZiq9m3RtvHUqsT5rAdNeNKCpOWD8uD09bUx_3jn4sA/edit?usp=sharing' target='_blank' class='card' data-scroll data-scroll-speed='25'>
                     <div class='text'>RESUME</div>
-                </a> -->
+                </a>
             </div>
 
             <footer class='footer-container'>
                 <div class='footer'>
-                    <!-- <p>Made using</p><a class='external-link' href='https://github.com/locomotivemtl/locomotive-scroll' target='_blank'>Locomotive Scroll</a> -->
                     <h4 class='copyright'>Site Design (c) 2021 -- Jordan T. Smith</h4>
                 </div>
 
@@ -241,11 +237,23 @@
     <!--Endregion-->
 
 
+
+
+
 </div>
 </article>
+
+<article class='mobile-only'>
+    <section class='mobile-message'>
+        <h3>My porfolio isn't quite mobile-friendly yet. Please check out
+            jordansmithdigital.com
+            on a laptop or desktop for now!</h3>
+    </section>
+</article>
+
+
 </main>
     
-<!-- <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic_mouse-1.1.js"></script> -->
 <script src='./app.js'></script>
 
 </body>

@@ -133,7 +133,7 @@ $link-light: rgb(0, 38, 255);
 $bg-dark: rgb(57, 60, 87);
 $bg-light: rgb(211, 211, 231);
 
-$primary-dark: rgb(211, 211, 231);
+$primary-dark: rgb(240, 240, 240);
 $primary-light: rgb(57, 60, 87);
 
 $secondary-dark: rgb(216, 42, 109);
@@ -141,8 +141,8 @@ $secondary-light: rgb(62, 62, 62);
 
 $color-divider: rgb(147, 156, 175);
 
-$bg-contact-light: rgb(21, 22, 43);
-$bg-contact-dark: rgb(43, 9, 43);
+$bg-contact-light: rgb(131, 131, 131);
+$bg-contact-dark: rgb(9, 10, 41);
 
 $color-contact-light: rgb(211, 211, 231);
 $color-contact-dark: rgb(66, 75, 157);
@@ -151,24 +151,26 @@ $color-contact-dark: rgb(66, 75, 157);
 // Light Theme
 :root {
     --scrollbar-opacity: 0.5;
-    --color-background: #{$bg-light};
-    --color-primary: #{$primary-light};
-    --color-secondary: #{$secondary-light};
-    --color-link: #{$link-light};
-    --color-bg-contact: #{$bg-contact-light};
-    --color-contact-color: #{$color-contact-light};
-
-}
-
-// Dark Theme
-.dark {
-    --scrollbar-opacity: 0.5;
     --color-background: #{$bg-dark};
     --color-primary: #{$primary-dark};
     --color-secondary: #{$secondary-dark};
     --color-link: #{$link-dark};
     --color-bg-contact: #{$bg-contact-dark};
     --color-contact-color: #{$color-contact-dark};
+
+}
+
+// Dark Theme
+.dark {
+
+
+    --scrollbar-opacity: 0.5;
+    --color-background: #{$bg-light};
+    --color-primary: #{$primary-light};
+    --color-secondary: #{$secondary-light};
+    --color-link: #{$link-light};
+    --color-bg-contact: #{$bg-contact-light};
+    --color-contact-color: #{$color-contact-light};
 
 }
 
@@ -191,7 +193,7 @@ body {
     // transition: 0.5s opacity, background 0.5s ease;
     transition: background 1s cubic-bezier(.215,.61,.355,1),
         color 1s cubic-bezier(.215,.61,.355,1), 
-        opacity 2s cubic-bezier(.215,.61,.355,1);
+        opacity 4s cubic-bezier(.215,.61,.355,1);
 
     p {
         font-family: $font-p;
@@ -394,7 +396,7 @@ body.fade-out {
     align-items: center; 
     height: 100vh;
     min-height: 100vh;
-    // border-bottom: 4px solid black;
+    border-bottom: 1px solid rgb(147, 156, 175);
     width: 100%;
     padding: 0rem 0rem 0rem 0rem;
     transition: background 3s;
@@ -589,11 +591,11 @@ body.fade-out {
         justify-content: flex-end;
 
         .title {
+            position: absolute;
             @include outline;
             margin: 0px 0px 30px 30px;
             font-size: 11rem;
             white-space: nowrap;
-            z-index: 1000;
     
             &:hover {
                 color: var(--color-primary);
@@ -655,9 +657,9 @@ body.fade-out {
     .container {
         display: flex;
         height: 100vh;
-        width: 70vw;
-        margin: 0px 15vw;
-        justify-content: space-evenly;
+        width: 700px;
+        margin: 0px 0px 0 0;
+        justify-content: space-around;
         padding-top: 100px;
     }
 
@@ -665,14 +667,17 @@ body.fade-out {
         height:70vh;
         max-height: 800px;
         width:10vw;
-        max-width: 250px;
+        max-width: 100px;
         border: 1px solid gray;
         background: rgba(0,0,0, 0.2);
-        opacity: 1;
+        opacity: 0.7;
+        transition: all 0.25s;
 
         &:hover {
             cursor: pointer;
+            background: rgba(0,0,0, 0.5);
             border: 1px solid white;
+            opacity: 1;
         }
     }
 
@@ -685,8 +690,8 @@ body.fade-out {
 
         .text {
             transform: rotate(-90deg);
-            color: white;
-            font-size: 7vw;
+            color: var(--color-secondary);
+            font-size: 5rem;
         }
     }
 
@@ -700,11 +705,11 @@ body.fade-out {
             flex-direction: row;
             align-items: center;
             justify-content: flex-end;
-            color: white;
+            color: var(--color-secondary);
             padding: 0rem 2rem;
 
             .copyright {
-                color: white;
+                color: var(--color-secondary);
             }
         }
 
@@ -743,7 +748,7 @@ body.fade-out {
         }
     
         .subline-2 {
-            margin: 0px 0px 450px 1700px;
+            margin: 0px 0px 450px 1550px;
             line-height: 2.25;
         }
     }
@@ -809,15 +814,40 @@ body.fade-out {
 }
 
  
-
+// Mobile
 @media screen and (max-width: 767px) {
 
+    .section {
+        background: black;
+    }
+
+    .nav {
+        right: 300px;
+        top: 50vh;
+        text-align: center;
+    }
+
+    .logo {
+        right: 175px;
+        top: 110px;
+        font-size: 1.25rem;
+        padding: 0rem;
+        width: 100%;
+        border: 1px solid red;
+    }
+
     .desktop-only {
-        display: none!important
+        display: none !important;
     }
 
     .mobile-only {
-        display: block!important
+        display: block !important;
+
+        .mobile-message {
+            margin: 30vh 15vw;
+            width: 70vw;
+            text-align: center;
+        }
     }
 
 }
