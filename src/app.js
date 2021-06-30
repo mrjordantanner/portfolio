@@ -7,54 +7,38 @@ $(function() {
 });
 
 // Theme switch
-document.querySelector('[data-switch-dark]').addEventListener('click', function() {
-    document.body.classList.toggle('dark');
+document.querySelector('[data-switch-theme]').addEventListener('click', function() {
+    document.body.classList.toggle('alternate');
   });
 
 // New Scroll Instance
 const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
-    lerp: 0.06,
+    lerp: 0.06, // Linear Interpolation, 0 > 1 // Try 0.01
+    multiplier: 1.4, // Effect Multiplier
+    reloadOnContextChange: true,
     scrollFromAnywhere: true,
-    getSpeed: true
+    touchMultiplier: 3,
+    smoothMobile: 1,
+    smartphone: {
+        smooth: 1,
+        // breakpoint: 767
+    },
+    tablet: {
+        smooth: 1,
+        // breakpoint: 1024
+    },
 });
 
-// $( "#link-header" ).hide();
+scroll.destroy();
 
-// On scroll 
-// scroll.on('scroll', (obj) => {
-
-    //// Turn off nav link if at the top of the site
-    // if ($( "#header" ).hasClass( "is-inview" )) {
-    //     $( "#link-header" ).hide();
-    //     // console.log('header in view')
-    // }
-
-    // if (!$( "#header" ).hasClass( "is-inview" )) {
-    //     $( "#link-header" ).show();
-    //     console.log('header not in view')
-    // }
-
-    // console.log(scroll.scroll)
-
-
-// });
-
-
-// Magic mouse
-// options = {
-//     "cursorOuter": "circle-basic",
-//     "hoverEffect": "circle-move",
-//     "hoverItemMove": false,
-//     "defaultCursor": false,
-//     "outerWidth": 30,
-//     "outerHeight": 30
-//   }; 
-// magicMouse(options);
-
-
-
+document.addEventListener("DOMContentLoaded", function(event) { 
+    event.stopPropagation();
+    scroll.init();
+    console.log(event);
+    console.log('scroll init');
+});
 
 
 
@@ -103,9 +87,7 @@ $( '#link-work-4' ).click(function() {
 const contactTarget = $( '#contact' );
 $( '#link-contact' ).click(function() {
     scroll.scrollTo(contactTarget[0], { duration: 2000 } );
-
 });
-
 
 // Project images show/hide
 $( '#trnkt-image' ).hide();
@@ -124,12 +106,12 @@ $( '#throw-6' ).mouseout(function() {
     $( '#throw-6-image').fadeOut();
 });
 
-$( '#deep-dive-image' ).hide();
-$( '#deep-dive' ).mouseenter(function() {
-    $( '#deep-dive-image' ).fadeIn();
+$( '#darkling-image' ).hide();
+$( '#darkling' ).mouseenter(function() {
+    $( '#darkling-image' ).fadeIn();
 });
-$( '#deep-dive' ).mouseout(function() {
-    $( '#deep-dive-image').fadeOut();
+$( '#darkling' ).mouseout(function() {
+    $( '#darkling-image').fadeOut();
 });
 
 $( '#clique-image' ).hide();
@@ -139,16 +121,3 @@ $( '#clique' ).mouseenter(function() {
 $( '#clique' ).mouseout(function() {
     $( '#clique-image').fadeOut();
 });
-
-
-
-
-// Scroll Progress
-// scroll.on('scroll', (args) => {
-
-//     if(typeof args.currentElements['scroll-tracker'] === 'object') {
-//         let progress = args.currentElements['scroll-tracker'].progress;
-//         // console.log(progress);
-
-//     }
-// });

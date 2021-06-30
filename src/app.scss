@@ -139,16 +139,19 @@ $primary-light: rgb(57, 60, 87);
 $secondary-dark: rgb(216, 42, 109);
 $secondary-light: rgb(62, 62, 62);
 
-$color-divider: rgb(147, 156, 175);
+$color-divider: rgb(128, 128, 128);
 
-$bg-contact-light: rgb(131, 131, 131);
-$bg-contact-dark: rgb(9, 10, 41);
+$bg-contact-light: rgb(0, 0, 0);
+$bg-contact-dark: rgb(0, 2, 55);
 
-$color-contact-light: rgb(211, 211, 231);
-$color-contact-dark: rgb(66, 75, 157);
+$color-contact-light: rgb(255, 255, 255);
+$color-contact-dark: $secondary-dark;
 
+// $color-nav-button-light: rgb(129, 57, 129);
+$color-nav-button-light: rgb(130, 130, 130);
+$color-nav-button-dark: $secondary-dark;
 
-// Light Theme
+// Default Theme
 :root {
     --scrollbar-opacity: 0.5;
     --color-background: #{$bg-dark};
@@ -157,13 +160,11 @@ $color-contact-dark: rgb(66, 75, 157);
     --color-link: #{$link-dark};
     --color-bg-contact: #{$bg-contact-dark};
     --color-contact-color: #{$color-contact-dark};
-
+    --color-nav-button: #{$color-nav-button-dark};
 }
 
-// Dark Theme
-.dark {
-
-
+// Alternate Theme
+.alternate {
     --scrollbar-opacity: 0.5;
     --color-background: #{$bg-light};
     --color-primary: #{$primary-light};
@@ -171,7 +172,7 @@ $color-contact-dark: rgb(66, 75, 157);
     --color-link: #{$link-light};
     --color-bg-contact: #{$bg-contact-light};
     --color-contact-color: #{$color-contact-light};
-
+    --color-nav-button: #{$color-nav-button-light};
 }
 
 // GENERAL
@@ -190,7 +191,6 @@ body {
     color: var(--color-primary);
     margin: 0px;
     opacity: 1;
-    // transition: 0.5s opacity, background 0.5s ease;
     transition: background 1s cubic-bezier(.215,.61,.355,1),
         color 1s cubic-bezier(.215,.61,.355,1), 
         opacity 4s cubic-bezier(.215,.61,.355,1);
@@ -246,7 +246,6 @@ body {
         padding: 0px 1rem;
         font-size: 1.25rem;
     }
-
 }
 
 body.fade-out {
@@ -268,6 +267,26 @@ body.fade-out {
     left: 30vw;
     width: 1px;
     background: $color-divider;
+}
+
+@mixin divider {
+    display: block;
+    position: absolute;
+    height: 2px;
+    bottom: 0px;
+    background: $color-divider;
+}
+
+.divider-partial {
+    @include divider;
+    width: 80vw;
+    left: 10vw;
+}
+
+.divider-full {
+    @include divider;
+    width: 100vw;
+    left: 0vw;
 }
 
 .pipe {
@@ -304,34 +323,28 @@ body.fade-out {
         opacity: 0.5;
         cursor: pointer;
     }
-
-    .selected {
-        background: gray;
-    }
 }
 
 
-@mixin nav {
+.logo {
     transform: rotate(-90deg);
+    @include nav-link;
     position: fixed;
-    z-index: 1;
-    padding: 0rem;
-    margin: 0px;
-    user-select: none;
+    font-size: 1.5rem;
+    word-wrap: none;
+    top: 120px;
+    right: -100px;
+    height: 50px;
 }
 
 .nav {
-    @include nav;
+    transform: rotate(-90deg);
     position: fixed;
-    width: 100vh;
-    right: -430px;
-    top: 47vh;
+    right: -82px;
+    top: 50vh;
+    height: 50px;
     text-align: center;
-
-    button {
-        @include nav-link;
-        padding: 0rem;
-    }
+    z-index: 1;
 
     .link {
         @include nav-link;
@@ -346,18 +359,10 @@ body.fade-out {
     
 }
 
-.logo {
-    @include nav;
-    @include nav-link;
-    right: -87px;
-    top: 150px;
-    font-size: 1.5rem;
-    padding: 0rem;
-}
-
-
-
 .theme-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     left: 2rem;
     top: 2rem;
@@ -369,11 +374,59 @@ body.fade-out {
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
-    // transition: all 0.2s;
 
     &:hover {
         border: 2px solid  var(--color-primary);
         font-weight: bold;
+    }
+}
+
+@mixin float {
+    display: none;
+	transform: translatey(0px);
+	animation: float 1.5s ease-in-out infinite;
+
+    @keyframes float {
+        0% {
+            transform: translatey(0px);
+            opacity: 1;
+        }
+        50% {
+            transform: translatey(-20px);
+            opacity: 0.6;
+        }
+        100% {
+            transform: translatey(0px);
+            opacity: 1;
+        }
+    }
+}
+
+
+@mixin button {
+    @include float;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-nav-button);
+    font-size: 0.75rem;
+    color: white;
+}
+
+.nav-button-container {
+    position: absolute;
+    bottom: 25px;
+    width: 100vw;
+
+    .button {
+        @include button;
+        position: absolute;
+        bottom: 40px;
+        right: 115px;
     }
 }
 
@@ -396,7 +449,6 @@ body.fade-out {
     align-items: center; 
     height: 100vh;
     min-height: 100vh;
-    border-bottom: 1px solid rgb(147, 156, 175);
     width: 100%;
     padding: 0rem 0rem 0rem 0rem;
     transition: background 3s;
@@ -406,32 +458,18 @@ body.fade-out {
     @include section; 
 }
 
-.section.is-inview {
-    // background: magenta;
-}
-
 .section-half {
-    @include section; 
-    height: 50vh;
+    @include section;
+    height: 50vh; 
     min-height: 50vh;
-    // border-bottom: 4px solid yellow;
-}
-
-.section-half.is-inview {
-    // background: chartreuse;
-}
-
-.section-double {
-    @include section; 
-    min-height: 200vh;
 }
 
 .desktop-only {
-    display: block!important
+    display: flex !important
 }
 
 .mobile-only {
-    display: none!important
+    display: none !important
 }
 //endregion
 
@@ -546,43 +584,6 @@ body.fade-out {
 
     }
 
-
-    .description-container {
-        @include fullscreen;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        .description {
-            font-style: italic;
-            width: 100vw;
-            justify-content: center;
-            text-align: center;
-            padding: 0px 0px;
-            margin: 0px;
-            width: 100vw;
-
-        }
-
-    }
-
-    .tech-container {
-        @include fullscreen;
-        display: flex;
-        flex-direction: column;
-
-        .tech {
-            align-self: flex-end;
-            color: var(--color-secondary);
-            text-align: center;
-            padding: 0 0px;
-            white-space: nowrap;
-            background: yellow;
-            width: 100vw;
-        }
-
-    }
-
     .title-container {
         @include fullscreen;
         position: absolute;
@@ -593,7 +594,7 @@ body.fade-out {
         .title {
             position: absolute;
             @include outline;
-            margin: 0px 0px 30px 30px;
+            margin: 0px 0px 120px 10px;
             font-size: 11rem;
             white-space: nowrap;
     
@@ -603,20 +604,11 @@ body.fade-out {
                 text-shadow: 8px 8px rgba(0,0,0, 0.2);
             }
         }
-    }
 
-    .link-container {
-        @include fullscreen;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        z-index: -10;
-
-        .link {
-            margin: 0px 0px 250px 80px;
-            font-size: 1.25rem;
-            width: 100%;
-            text-align: left;
+        .description {
+            font-size: 1.5rem;
+            margin: 0px 0px 100px 100px;
+            font-weight: bold;
         }
     }
 
@@ -652,18 +644,19 @@ body.fade-out {
     color: var(--color-contact-color);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
 
     .container {
         display: flex;
-        height: 100vh;
+        height: 120vh;
         width: 700px;
         margin: 0px 0px 0 0;
         justify-content: space-around;
         padding-top: 100px;
     }
 
-    @mixin card {
+    .card {
         height:70vh;
         max-height: 800px;
         width:10vw;
@@ -672,6 +665,10 @@ body.fade-out {
         background: rgba(0,0,0, 0.2);
         opacity: 0.7;
         transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 4rem 0rem;
 
         &:hover {
             cursor: pointer;
@@ -679,40 +676,28 @@ body.fade-out {
             border: 1px solid white;
             opacity: 1;
         }
-    }
-
-    .card {
-        @include card;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 4rem 0rem;
 
         .text {
             transform: rotate(-90deg);
-            color: var(--color-secondary);
+            color: var(--color-contact-color);
             font-size: 5rem;
         }
     }
 
     .footer-container {
         position: absolute;
-        bottom: 1.5rem;
+        bottom: 0px;
+        height: 50px;
         width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        .footer {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-end;
-            color: var(--color-secondary);
-            padding: 0rem 2rem;
-
-            .copyright {
-                color: var(--color-secondary);
-            }
+        .copyright {
+            color: var(--color-contact-color) !important;
+            font-size: 1.5rem;
         }
-
     }
 }
 
@@ -729,11 +714,9 @@ body.fade-out {
     .section {
         // background: purple;
     }
-
+    
     .nav {
-        right: -1180px;
-        top: 50vh;
-        text-align: center;
+        top: 45vh;
     }
 
     .header {
@@ -769,10 +752,17 @@ body.fade-out {
     .project {
         .title-container {
             .title {
-                padding: 0vh 0vw 30px 30px;
-                font-size: 11rem;
+                padding: 0vh 0vw 30px 10px;
             }
+
         }
+
+        .header {
+            padding: 0 75px 180px 0;
+  
+        }
+
+
     }
 
     .contact {
@@ -791,10 +781,9 @@ body.fade-out {
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (min-resolution: 192dpi) { 
-
+    
     .nav {
-        top: 60vh;
-        right: -340px;
+        top: 50vh;
     }
 
     .contact {
@@ -808,50 +797,181 @@ body.fade-out {
 
 }
 
-
-
-@media screen and (max-width: 1024px) and (orientation:portrait) {
-
-}
-
-@media screen and (min-width: 851px) and (max-width:1024px) {
-
-}
-
  
 // Mobile
 @media screen and (max-width: 767px) {
-
-    .section {
-        background: black;
-    }
-
-    .nav {
-        right: 300px;
-        top: 50vh;
-        text-align: center;
-    }
-
-    .logo {
-        right: 175px;
-        top: 110px;
-        font-size: 1.25rem;
-        padding: 0rem;
-        width: 100%;
-        border: 1px solid red;
-    }
 
     .desktop-only {
         display: none !important;
     }
 
     .mobile-only {
-        display: block !important;
+        display: flex !important;
+    }
 
-        .mobile-message {
-            margin: 30vh 15vw;
-            width: 70vw;
-            text-align: center;
+    .theme-switch {
+        left: 1rem;
+        top: 1rem;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .nav-button-container {
+        position: absolute;
+        bottom: 25px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center !important;
+   
+        .button {
+            @include button;
+            position: relative;
+            bottom: 25px;
+            right: 0px;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     
+        .headline {
+            font-size: 22vmin;
+            margin: 0px 0px 0px 30px;
+        }
+
+        .headline-2 {
+            @include outline;
+            font-size: 22vmin;
+            margin: 0px 0px 0px 30px;
+            width: 100%;
+            white-space: nowrap;
+        }
+        
+        .subline-1 {
+            font-size: 5vmin;
+            margin: 00px 0px 120px 75px;  
+        }
+    
+        .subline-2 {
+            font-size: 5vmin;
+            margin: 00px 0px -200px 200px;
+        }
+    
+    }
+
+    .intro {
+        .name {
+            font-size: 15vmin;
+            margin: 0px 0px 0px -70px;
+            width: 100vw;
+        }
+    
+        .body {
+            margin: 5vh 0px 0px 0px;
+            width: 90vw;
+
+            .line {
+                padding: 1rem 0rem;
+                width: 100%;
+            }
+    
+            .one {
+                font-size: 5vmin;
+                margin-left: 5vmin;
+            }
+    
+            .two {
+                font-size: 5vmin;
+                margin-left: 10vmin;
+            }
+    
+            .three {
+                font-size: 5vmin;
+                margin-left: 18vmin;
+            }
+    
+            .four {
+                font-size: 5vmin;
+                margin-left: 28vmin;
+            }
+        }
+    }
+
+    .project {
+        .header {
+            justify-content: center;
+            padding: 5vh 10px 0px 75vw;
+    
+            .text {
+                font-size: 20vmin;
+            }
+        }
+    
+        .title-container {
+            .title {
+                margin: 0vh 0px 175px 0px;
+                font-size: 20vmin;
+            }
+
+            .description {
+                margin: 0px 0px 150px 25px;
+                font-size: 6vmin;
+            }
+        }
+    }
+
+    .contact {
+        height: 105vh;
+
+         .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            margin: 100px 0px 0px 0px;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            // padding: 0px 0px 0px 0px;
+        }
+    
+        .card {
+            height: 40px;
+            width: 80vw;
+            max-width: 500px;
+            border: none;
+            background: rgba(0,0,0, 0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0rem 0rem;
+            margin: 1rem 0rem;
+            opacity: 1;
+    
+            .text {
+                transform: rotate(0deg);
+                font-size: 10vmin;
+            }
+        }
+    
+        .footer-container {
+            position: absolute;
+            bottom: 50px;
+            height: 125px;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .copyright {
+                color: var(--color-secondary);
+                font-size: 1.25rem;
+            }
         }
     }
 
