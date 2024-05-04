@@ -1,4 +1,4 @@
-import LocomotiveScroll from 'locomotive-scroll';
+//import LocomotiveScroll from '../node_modules/locomotive-scroll'
 
 // Document Fade
 document.body.className += ' fade-out';
