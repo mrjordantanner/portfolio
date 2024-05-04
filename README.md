@@ -1,1 +1,2 @@
-## Professional Portfolio, Work-In-Progress
+## Professional Portfolio of Jordan T. Smith
+### (In Development)
