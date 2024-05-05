@@ -2,10 +2,8 @@ node_modules
 .env
 .vscode
 .parcel-cache
-dist
 .cache
 
 node_modules/
 .cache/
 .parcel-cache/
-dist/
