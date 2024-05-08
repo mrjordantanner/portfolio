@@ -9,12 +9,14 @@
 
 @mixin outline {
     font-family: Akzidensk, Arial, Helvetica, sans-serif;
-    color: var(--color-background);
-    text-shadow:
-     -2px -2px 0 var(--color-primary),  
-      2px -2px 0 var(--color-primary),
-      -2px 2px 0 var(--color-primary),
-       2px 2px 0 var(--color-primary);
+    //color: var(--color-background);
+    color: transparent; // Set text color to transparent
+    -webkit-text-stroke: 2px var(--color-primary); // Add stroke to the text
+    // text-shadow:
+    //  -2px -2px 0 var(--color-primary),  
+    //   2px -2px 0 var(--color-primary),
+    //   -2px 2px 0 var(--color-primary),
+    //    2px 2px 0 var(--color-primary);
 }
 
 .outline {
@@ -130,26 +132,37 @@ $font-link: 'Akzidensk Bold', sans-serif;
 $link-dark: cyan;
 $link-light: rgb(0, 38, 255);
 
-$bg-dark: rgb(57, 60, 87);
-$bg-light: rgb(211, 211, 231);
+//$bg-dark: rgb(33, 35, 52);
+$bg-dark: #2b3654;
+$bg-light: rgb(218, 211, 201);
+// $bg-dark: rgb(57, 60, 87);
+// $bg-light: rgb(211, 211, 231);
 
-$primary-dark: rgb(240, 240, 240);
-$primary-light: rgb(57, 60, 87);
+// $primary-dark: rgb(240, 240, 240);
+$primary-dark: #91a3c7;
+//$primary-light: rgb(57, 60, 87);
+$primary-light: rgb(55, 37, 37);
 
-$secondary-dark: rgb(216, 42, 109);
-$secondary-light: rgb(62, 62, 62);
+// $secondary-dark: rgb(216, 42, 109);
+//$secondary-dark: palegreen;
+$secondary-dark: #f4b570;
+$secondary-light: rgb(153, 121, 123);
+// $secondary-light: rgb(98, 72, 129);
+//$secondary-light: rgb(62, 62, 62);
 
-$color-divider: rgb(128, 128, 128);
+$color-divider-light: rgb(209, 202, 192);
+$color-divider-dark: #344162;
 
-$bg-contact-light: rgb(0, 0, 0);
-$bg-contact-dark: rgb(0, 2, 55);
+$bg-footer-light: rgb(166, 157, 157);
+$bg-footer-dark: rgb(70, 70, 70);
 
-$color-contact-light: rgb(255, 255, 255);
-$color-contact-dark: $secondary-dark;
+$color-footer-light: rgb(255, 255, 255);
+$color-footer-dark: $secondary-dark;
 
-// $color-nav-button-light: rgb(129, 57, 129);
-$color-nav-button-light: rgb(130, 130, 130);
+$color-nav-button-light: $secondary-light;
 $color-nav-button-dark: $secondary-dark;
+
+
 
 // Default Theme
 :root {
@@ -158,9 +171,12 @@ $color-nav-button-dark: $secondary-dark;
     --color-primary: #{$primary-dark};
     --color-secondary: #{$secondary-dark};
     --color-link: #{$link-dark};
-    --color-bg-contact: #{$bg-contact-dark};
-    --color-contact-color: #{$color-contact-dark};
+    // --color-bg-footer: #{$bg-footer-dark};
+    // --color-footer-color: #{$color-footer-dark};
+    --color-bg-footer: #{$secondary-dark};
+    --color-footer-color: #{$bg-dark};
     --color-nav-button: #{$color-nav-button-dark};
+    --color-divider: #{$color-divider-dark};
 }
 
 // Alternate Theme
@@ -170,9 +186,12 @@ $color-nav-button-dark: $secondary-dark;
     --color-primary: #{$primary-light};
     --color-secondary: #{$secondary-light};
     --color-link: #{$link-light};
-    --color-bg-contact: #{$bg-contact-light};
-    --color-contact-color: #{$color-contact-light};
+    // --color-bg-footer: #{$bg-footer-light};
+    // --color-footer-color: #{$color-footer-light};
+    --color-bg-footer: #{$secondary-light};
+    --color-footer-color: #{$bg-light};
     --color-nav-button: #{$color-nav-button-light};
+    --color-divider: #{$color-divider-light};
 }
 
 // GENERAL
@@ -266,7 +285,7 @@ body.fade-out {
     height:100vh;
     left: 30vw;
     width: 1px;
-    background: $color-divider;
+    background: var(--color-divider);
 }
 
 @mixin divider {
@@ -274,7 +293,7 @@ body.fade-out {
     position: absolute;
     height: 2px;
     bottom: 0px;
-    background: $color-divider;
+    background: var(--color-divider);
 }
 
 .divider-partial {
@@ -294,9 +313,32 @@ body.fade-out {
     color: var(--color-primary);
 }
 
+.hidden {
+    display: none;
+    color: transparent;
+    background-color: transparent;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+@mixin blinking {
+    animation: blink 0.01s infinite; 
+  }
+
+.skill {
+    background-color: var(--color-secondary);
+    font-size: 2rem;
+    font-weight: bold;
+    //margin: 0px 0px 400px 0px;
+}
+  
 
 // NAVIGATION, LINKS, AND UI
-//Region [Black]
+//Region [Gray]
 .external-link {
     font-weight: bold;
     font-family: $font-link;
@@ -327,34 +369,45 @@ body.fade-out {
 
 
 .logo {
-    transform: rotate(-90deg);
+    //transform: rotate(-90deg);
     @include nav-link;
-    position: fixed;
+    //position: fixed;
     font-size: 1.5rem;
     word-wrap: none;
-    top: 120px;
-    right: -100px;
-    height: 50px;
+    top: 0px;
+    left: 0px;
+    //height: 50px;
 }
 
 .nav {
-    transform: rotate(-90deg);
+    //transform: rotate(-90deg);
     position: fixed;
-    right: -82px;
-    top: 50vh;
-    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    left: 0px;
+    //top: 30vh;
+    height: 100vh;
+    width: 40px;
     text-align: center;
     z-index: 1;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-secondary);
 
     .link {
         @include nav-link;
-        padding: 0rem 0.5rem;
+        //padding: 0rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        transform: rotate(-90deg);
     }
 
     .project-link {
         @include nav-link;
-        padding: 0rem 0.5rem;
-        transform: rotate(90deg);
+        padding: 0rem 1rem;
+        font-size: 1.25rem;
+        //transform: rotate(90deg);
     }
     
 }
@@ -364,19 +417,19 @@ body.fade-out {
     justify-content: center;
     align-items: center;
     position: fixed;
-    left: 2rem;
-    top: 2rem;
-    height: 3rem;
-    width: 3rem;
-    background: transparent;
-    border: 1px solid  var(--color-primary);
+    right: 3rem;
+    top: 1.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    background: var(--color-background);
+    border: 2px solid  var(--color-primary);
     color: var(--color-primary);
     border-radius: 50%;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
 
     &:hover {
-        border: 2px solid  var(--color-primary);
+        border: 3px solid  var(--color-primary);
         font-weight: bold;
     }
 }
@@ -409,12 +462,13 @@ body.fade-out {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    opacity: 0.9;
     border-radius: 50%;
     background: var(--color-nav-button);
-    font-size: 0.75rem;
-    color: white;
+    font-size: 1rem;
+    color: var(--color-background);
 }
 
 .nav-button-container {
@@ -427,6 +481,23 @@ body.fade-out {
         position: absolute;
         bottom: 40px;
         right: 115px;
+        border: 1px solid var(--color-background);
+        z-index: 5;
+
+        &:hover {
+            width: 62px;
+            height: 62px;
+            transition: 0s linear;
+        }
+
+        &:active {
+            background-color: white;
+            width: 58px;
+            height: 58px;
+            transition: 0s linear;
+        }
+
+        
     }
 }
 
@@ -468,6 +539,10 @@ body.fade-out {
     display: flex !important
 }
 
+.desktop-only-block {
+    display: inline-block !important
+}
+
 .mobile-only {
     display: none !important
 }
@@ -484,11 +559,22 @@ body.fade-out {
     flex-direction: column;
     justify-content: flex-end;
  
+    .top-fill {
+        height: 13vmax;
+        width: 100vw;
+        background-color: var(--color-secondary);
+        left: 0px;
+        top: -50px;
+        position: absolute;
+
+
+    }
+
     .headline {
         @include outline;
         text-align: left;
-        font-size: 9rem;
-        margin: 0px 0px 100px 30px;
+        font-size: 10rem;
+        margin: 0px 0px 50px 100px;
         padding: 0rem;
         width: 100%;
         white-space: nowrap;
@@ -496,9 +582,10 @@ body.fade-out {
     
     .subline-1 {
         color: var(--color-secondary);
-        font-size: 1.5rem;
+        font-size: 2rem;
+        font-weight: 500;
         text-align: left;
-        margin: 0px 0px 0px 400px;
+        margin: 0px 0px 100px 500px;
         padding: 0rem;
         width: 100%;
 
@@ -506,12 +593,14 @@ body.fade-out {
 
     .subline-2 {
         color: var(--color-secondary);
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        font-weight: 400;
         text-align: left;
-        margin: 0px 0px 150px 600px;
+        margin: 0px 0px 150px 650px;
         padding: 0rem;
         line-height: 2.25;
         width: 100%;
+        text-wrap: pretty;
     }
 
 }
@@ -533,7 +622,6 @@ body.fade-out {
         text-align: right;
         margin: 5vh 0px 0rem 0vw;
         width: 80vw;
-
 
         .line {
             text-align: right;
@@ -557,10 +645,21 @@ body.fade-out {
             margin-left: 17vw;
         }
     }
+
+
+}
+
+.photo {
+    position: absolute;
+    margin: 0px 100px;
+    opacity: 0.8;
+    //background-color: red;
+    
 }
 //endregion
 
 
+$angled-line-width: 150px;
 
 // PROJECT
 //Region [Purple]
@@ -590,25 +689,27 @@ body.fade-out {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        z-index: 5;
 
         .title {
             position: absolute;
-            @include outline;
-            margin: 0px 0px 120px 10px;
+            color: var(--color-primary);
+            margin: 0px 0px 120px 50px;
             font-size: 11rem;
             white-space: nowrap;
+            z-index: 5;
     
             &:hover {
-                color: var(--color-primary);
-                opacity: 1;
-                text-shadow: 8px 8px rgba(0,0,0, 0.2);
+                @include outline;
+                //text-shadow: 8px 8px rgba(0,0,0, 0.2);
             }
         }
 
         .description {
             font-size: 1.5rem;
-            margin: 0px 0px 100px 100px;
-            font-weight: bold;
+            margin: 0px 0px 75px 130px;
+            font-weight: 400;
+            color: var(--color-secondary);
         }
     }
 
@@ -620,7 +721,6 @@ body.fade-out {
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: -100;
         opacity: 1;
         transition: all 0.25s;
 
@@ -629,58 +729,91 @@ body.fade-out {
             min-width: 100vw;
             object-fit: cover;
             margin: 0px 0vw;
-            opacity: 0.40;
+            opacity: 0.50;
+            z-index: -5;
         }
     }
-}
+
+    .hover-label {
+        @include blinking;
+        position: absolute;
+        top: 550px;
+        left: 500px;
+
+        .angled-line {
+            width: $angled-line-width;
+            height: 1px;
+            background-color: var(--color-secondary);
+            transform: rotate(-30deg);
+            transform-origin: top right;
+          }
+          
+          .horizontal-line {
+            width: 200px; /* Length of the horizontal line */
+            height: 1px;
+            background-color: var(--color-secondary);
+            margin-left: $angled-line-width;
+          }
+          
+          .hover-text {
+            position: absolute;
+            color: var(--color-secondary);
+            font-weight: 600;
+            text-wrap: nowrap;
+            top: -6px;
+            left: 360px;
+          }
+
+      }
+ }
 //endregion
 
 
-// CONTACT
+// FOOTER
 //Region [Lime]
 .contact {
     @include fullscreen;
-    background: var(--color-bg-contact);
-    color: var(--color-contact-color);
+    background: var(--color-bg-footer);
+    color: var(--color-footer-color);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
 
     .container {
         display: flex;
-        height: 120vh;
-        width: 700px;
-        margin: 0px 0px 0 0;
+        flex-direction: column;
+        //height: 80vh;
+        width: 80%;
+        //margin: 0px 0px 0 0;
         justify-content: space-around;
-        padding-top: 100px;
+        //padding-top: 100px;
+        //background-color: gray;
+        border: 2px solid red;
     }
 
-    .card {
-        height:70vh;
-        max-height: 800px;
-        width:10vw;
-        max-width: 100px;
-        border: 1px solid gray;
-        background: rgba(0,0,0, 0.2);
-        opacity: 0.7;
-        transition: all 0.25s;
+    .link {
+        border: 1px solid blue;
+        //background: rgba(0,0,0, 0.2);
+        transition: all 0.2s;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        padding: 4rem 0rem;
+        justify-content: center;
+        //padding: 4rem 0rem;
+        //border-radius: 20% 0 0 20%;
 
         &:hover {
             cursor: pointer;
-            background: rgba(0,0,0, 0.5);
-            border: 1px solid white;
-            opacity: 1;
+            //background: rgba(0,0,0, 0.5);
+            //border: 1px solid white;
+            opacity: 0.5;
         }
 
         .text {
-            transform: rotate(-90deg);
-            color: var(--color-contact-color);
-            font-size: 5rem;
+            color: var(--color-footer-color);
+            font-size: 2.5rem;
+            text-wrap: nowrap;
+            //margin: 0px 0px 100px 0px;
         }
     }
 
@@ -694,9 +827,9 @@ body.fade-out {
         align-items: center;
         justify-content: center;
 
-        .copyright {
+        .footer-text {
             color: var(--color-contact-color) !important;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
     }
 }
@@ -766,8 +899,9 @@ body.fade-out {
     }
 
     .contact {
+        
         .container {
-            height: 100vh;
+            height: 60vh;
             width: 70vw;
             margin: 0px 15vw;
             padding-top: 1000px;
@@ -796,12 +930,18 @@ body.fade-out {
     }
 
 }
-
+// Endregion
  
+
 // Mobile
+// Region [DarkCyan] Site Header
 @media screen and (max-width: 767px) {
 
     .desktop-only {
+        display: none !important;
+    }
+
+    .desktop-only-block {
         display: none !important;
     }
 
@@ -810,10 +950,10 @@ body.fade-out {
     }
 
     .theme-switch {
-        left: 1rem;
+        right: 1rem;
         top: 1rem;
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 3.5rem;
+        width: 3.5rem;
     }
 
     .nav-button-container {
@@ -902,6 +1042,21 @@ body.fade-out {
         }
     }
 
+    .photo {
+        margin: 0px 0px;
+        opacity: 0.6;
+
+        img {
+            position: relative;
+            //background-color: red;
+            top: -200px;
+            left: 50px;
+            height: 50vh;
+            width: 50vw;
+            
+        }
+    }
+
     .project {
         .header {
             justify-content: center;
@@ -916,23 +1071,28 @@ body.fade-out {
             .title {
                 margin: 0vh 0px 175px 0px;
                 font-size: 20vmin;
+                overflow: wrap;
+                text-wrap: pretty;
             }
 
             .description {
-                margin: 0px 0px 150px 25px;
+                margin: 0px 0px 125px 25px;
                 font-size: 6vmin;
+                overflow: wrap;
+                text-wrap: pretty;
             }
         }
     }
 
     .contact {
-        height: 105vh;
+        // height: 105vh;
+        height: 180vh;
 
          .container {
             display: flex;
             height: 100vh;
             width: 100vw;
-            margin: 100px 0px 0px 0px;
+            //margin: 100px 0px 0px 0px;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
@@ -943,13 +1103,13 @@ body.fade-out {
             height: 40px;
             width: 80vw;
             max-width: 500px;
-            border: none;
+            border: 1px solid gray;
             background: rgba(0,0,0, 0);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0rem 0rem;
+            padding: 2rem;
             margin: 1rem 0rem;
             opacity: 1;
     
@@ -961,12 +1121,13 @@ body.fade-out {
     
         .footer-container {
             position: absolute;
-            bottom: 50px;
+            bottom: 0px;
             height: 125px;
             width: 100vw;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-evenly;
 
             .copyright {
                 color: var(--color-secondary);

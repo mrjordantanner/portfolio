@@ -3344,7 +3344,7 @@ $('#link-header').click(function () {
 var aboutTarget = $('#intro');
 $('#link-about').click(function () {
   scroll.scrollTo(aboutTarget[0], {});
-}); // PROJECTS
+}); // Navbar project links
 
 var p1Target = $('#project-1');
 $('#link-work-1').click(function () {
@@ -3374,33 +3374,57 @@ $('#link-contact').click(function () {
   });
 }); // Project images show/hide
 
-$('#trnkt-image').hide();
-$('#trnkt').mouseenter(function () {
-  $('#trnkt-image').fadeIn();
+$('#p1-image').hide();
+$('#p1').mouseenter(function () {
+  $('#p1-image').stop(true, true).fadeIn();
+  $('#p1-hover-label').children().addClass('hidden');
+  $('#p1-description').addClass('hidden');
+  $('#p1-number').addClass('hidden');
 });
-$('#trnkt').mouseout(function () {
-  $('#trnkt-image').fadeOut();
+$('#p1').mouseout(function () {
+  $('#p1-image').stop(true, true).fadeOut();
+  $('#p1-hover-label').children().removeClass('hidden');
+  $('#p1-description').removeClass('hidden');
+  $('#p1-number').removeClass('hidden');
 });
-$('#throw-6-image').hide();
-$('#throw-6').mouseenter(function () {
-  $('#throw-6-image').fadeIn();
+$('#p2-image').hide();
+$('#p2').mouseenter(function () {
+  $('#p2-image').stop(true, true).fadeIn();
+  $('#p2-hover-label').children().addClass('hidden');
+  $('#p2-description').addClass('hidden');
+  $('#p2-number').addClass('hidden');
 });
-$('#throw-6').mouseout(function () {
-  $('#throw-6-image').fadeOut();
+$('#p2').mouseout(function () {
+  $('#p2-image').stop(true, true).fadeOut();
+  $('#p2-hover-label').children().removeClass('hidden');
+  $('#p2-description').removeClass('hidden');
+  $('#p2-number').removeClass('hidden');
 });
-$('#darkling-image').hide();
-$('#darkling').mouseenter(function () {
-  $('#darkling-image').fadeIn();
+$('#p3-image').hide();
+$('#p3').mouseenter(function () {
+  $('#p3-image').stop(true, true).fadeIn();
+  $('#p3-hover-label').children().addClass('hidden');
+  $('#p3-description').addClass('hidden');
+  $('#p3-number').addClass('hidden');
 });
-$('#darkling').mouseout(function () {
-  $('#darkling-image').fadeOut();
+$('#p3').mouseout(function () {
+  $('#p3-image').stop(true, true).fadeOut();
+  $('#p3-hover-label').children().removeClass('hidden');
+  $('#p3-description').removeClass('hidden');
+  $('#p3-number').removeClass('hidden');
 });
-$('#clique-image').hide();
-$('#clique').mouseenter(function () {
-  $('#clique-image').fadeIn();
+$('#p4-image').hide();
+$('#p4').mouseenter(function () {
+  $('#p4-image').stop(true, true).fadeIn();
+  $('#p4-hover-label').children().addClass('hidden');
+  $('#p4-description').addClass('hidden');
+  $('#p4-number').addClass('hidden');
 });
-$('#clique').mouseout(function () {
-  $('#clique-image').fadeOut();
+$('#p4').mouseout(function () {
+  $('#p4-image').stop(true, true).fadeOut();
+  $('#p4-hover-label').children().removeClass('hidden');
+  $('#p4-description').removeClass('hidden');
+  $('#p4-number').removeClass('hidden');
 });
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -3430,7 +3454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50748" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49885" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

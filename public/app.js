@@ -40,9 +40,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log('scroll init');
 });
 
-
-
-
 // Scroll Anchors
 // Header Section
 $( '#link-header' ).click(function() {
@@ -56,7 +53,7 @@ $( '#link-about' ).click(function() {
 
 });
 
-// PROJECTS
+// Navbar project links
 const p1Target = $( '#project-1' );
 $( '#link-work-1' ).click(function() {
     const height = $( window ).height();
@@ -80,7 +77,6 @@ $( '#link-work-3' ).click(function() {
 const p4Target = $( '#project-4' );
 $( '#link-work-4' ).click(function() {
     scroll.scrollTo(p4Target[0], { });
-
 });
 
 // Contact Section
@@ -90,34 +86,58 @@ $( '#link-contact' ).click(function() {
 });
 
 // Project images show/hide
-$( '#trnkt-image' ).hide();
-$( '#trnkt' ).mouseenter(function() {
-    $( '#trnkt-image' ).fadeIn();
+$( '#p1-image' ).hide();
+$( '#p1' ).mouseenter(function() {
+    $( '#p1-image' ).stop(true, true).fadeIn();
+    $('#p1-hover-label').children().addClass('hidden');
+    $('#p1-description').addClass('hidden');
+    $('#p1-number').addClass('hidden');
 });
-$( '#trnkt' ).mouseout(function() {
-    $( '#trnkt-image').fadeOut();
-});
-
-$( '#throw-6-image' ).hide();
-$( '#throw-6' ).mouseenter(function() {
-    $( '#throw-6-image' ).fadeIn();
-});
-$( '#throw-6' ).mouseout(function() {
-    $( '#throw-6-image').fadeOut();
+$( '#p1' ).mouseout(function() {
+    $( '#p1-image').stop(true, true).fadeOut();
+   $('#p1-hover-label').children().removeClass('hidden')
+   $('#p1-description').removeClass('hidden')
+   $('#p1-number').removeClass('hidden');
 });
 
-$( '#darkling-image' ).hide();
-$( '#darkling' ).mouseenter(function() {
-    $( '#darkling-image' ).fadeIn();
+$( '#p2-image' ).hide();
+$( '#p2' ).mouseenter(function() {
+    $( '#p2-image' ).stop(true, true).fadeIn();
+   $('#p2-hover-label').children().addClass('hidden');
+    $('#p2-description').addClass('hidden');
+    $('#p2-number').addClass('hidden');
 });
-$( '#darkling' ).mouseout(function() {
-    $( '#darkling-image').fadeOut();
+$( '#p2' ).mouseout(function() {
+    $( '#p2-image').stop(true, true).fadeOut();
+    $('#p2-hover-label').children().removeClass('hidden')
+    $('#p2-description').removeClass('hidden')
+    $('#p2-number').removeClass('hidden');
 });
 
-$( '#clique-image' ).hide();
-$( '#clique' ).mouseenter(function() {
-    $( '#clique-image' ).fadeIn();
+$( '#p3-image' ).hide();
+$( '#p3' ).mouseenter(function() {
+    $( '#p3-image' ).stop(true, true).fadeIn();
+    $('#p3-hover-label').children().addClass('hidden');
+    $('#p3-description').addClass('hidden');
+    $('#p3-number').addClass('hidden');
 });
-$( '#clique' ).mouseout(function() {
-    $( '#clique-image').fadeOut();
+$( '#p3' ).mouseout(function() {
+    $( '#p3-image').stop(true, true).fadeOut();
+   $('#p3-hover-label').children().removeClass('hidden')
+    $('#p3-description').removeClass('hidden')
+    $('#p3-number').removeClass('hidden');
+});
+
+$( '#p4-image' ).hide();
+$( '#p4' ).mouseenter(function() {
+    $( '#p4-image' ).stop(true, true).fadeIn();
+    $('#p4-hover-label').children().addClass('hidden');
+    $('#p4-description').addClass('hidden');
+    $('#p4-number').addClass('hidden');
+});
+$( '#p4' ).mouseout(function() {
+    $( '#p4-image').stop(true, true).fadeOut();
+   $('#p4-hover-label').children().removeClass('hidden')
+   $('#p4-description').removeClass('hidden')
+   $('#p4-number').removeClass('hidden');
 });
