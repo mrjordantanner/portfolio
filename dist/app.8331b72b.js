@@ -3302,9 +3302,15 @@ $(function () {
   $('body').removeClass('fade-out');
 }); // Theme switch
 
-document.querySelector('[data-switch-theme]').addEventListener('click', function () {
+document.getElementById('theme-toggle').addEventListener('click', OnClickThemeToggle);
+
+function OnClickThemeToggle() {
   document.body.classList.toggle('alternate');
-}); // New Scroll Instance
+  var themeToggle = document.getElementById('theme-toggle');
+  themeToggle.classList.toggle('rotate-animation-1');
+  themeToggle.classList.toggle('rotate-animation-2');
+} // New Scroll Instance
+
 
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
@@ -3329,9 +3335,8 @@ var scroll = new _locomotiveScroll.default({
 scroll.destroy();
 document.addEventListener("DOMContentLoaded", function (event) {
   event.stopPropagation();
-  scroll.init();
-  console.log(event);
-  console.log('scroll init');
+  scroll.init(); // console.log(event);
+  // console.log('scroll init');
 }); // Scroll Anchors
 // Header Section
 
@@ -3454,7 +3459,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49885" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53968" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
