@@ -38,7 +38,7 @@
 <body>
 
     <!--Region [Gray] Top Buttons and Nav -->
-    <a href='mailto:mrjordantanner@gmail.com' class='contact-button ' target='_blank'>Get In Touch</a>
+    <a href='mailto:mrjordantanner@gmail.com' class='contact-button desktop-only' target='_blank'>Get In Touch</a>
 
     <button id="theme-toggle" class="rotate-animation-1" data-switch-theme aria-hidden >
 
@@ -86,7 +86,7 @@
     
                 </div>
             </div>
-            <div class='nav-button-container'><a href='#project-1' class='button' data-scroll-to>Next</a></div>
+            <div class='next-button-container'><a href='#project-1' class='button' data-scroll-to>Next</a></div>
         </section> -->
         <!--Endregion-->
 
@@ -110,7 +110,7 @@
             </h3> -->
             
         </div>
-        <div class='nav-button-container'><a href='#intro' class='button' data-scroll-to>Next</a></div>
+        <div class='next-button-container'><a href='#intro' class='button' data-scroll-to>Next</a></div>
         <div class='divider-partial'></div>
     </section>
     <!--Endregion-->
@@ -136,18 +136,17 @@
                     <strong>a Full-Stack Software Engineer<br> & Game Developer based in Austin, Texas.</strong></h2>
 
                 <h3 class='line two' data-scroll data-scroll-speed='-3' data-scroll-direction='horizontal'>
-                    I'm obsessed with fusing my interests in art and tech to build engaging software every day.</h3>
+                    I'm obsessed with leveling up my skills in art and tech to build engaging software every day.</h3>
 
-                <h3 class='line two' data-scroll data-scroll-speed='-4' data-scroll-direction='horizontal'>
+                <h3 class='line three' data-scroll data-scroll-speed='-4' data-scroll-direction='horizontal'>
                     <strong>In this portfolio, I've highlighted four recent projects to showcase.</strong></h3>
 
-                <h3 class='line three' data-scroll data-scroll-speed='-5' data-scroll-direction='horizontal' >
+                <h3 class='line four' data-scroll data-scroll-speed='-5' data-scroll-direction='horizontal' >
                     Hover over project titles to preview them.  Tap or click to visit.</h3>
 
             </div>
         </div>
-        <div class='nav-button-container'><a href='#project-1' class='button' data-scroll-to>Next</a></div>
-        <!-- <div class='divider-partial'></div> -->
+        <div class='next-button-container'><a href='#project-1' class='button' data-scroll-to>Next</a></div>
     </section>
     <!--Endregion-->
 
@@ -160,28 +159,27 @@
         <div data-scroll class='project'>
 
             <div data-scroll data-scroll-speed='10' class='header'>
-                <h1 class='text' id="p1-number">01</h1>
+                <h1 class='text hide-on-hover' id="p1-number">01</h1>
             </div>
  
             <div data-scroll data-scroll-speed='4' class='title-container'>
 
-                <div class="hover-label desktop-only-block" id="p1-hover-label">
-                    <div class="angled-line"></div>
-                    <div class="horizontal-line"></div>
-                    <div class="hover-text">[ Hover ]</div>
+                <div class="hover-label desktop-only-block">
+                    <div class="angled-line hide-on-hover"></div>
+                    <div class="horizontal-line hide-on-hover"></div>
+                    <div class="hover-text hide-on-hover">[ Hover ]</div>
                   </div>
 
-                <a href='https://github.com/mrjordantanner/trnkt' target='_blank' class='title' id='p1'>TRNKT</a>
-                <p class='description' id="p1-description">Crypto Art Gallery | <strong>React</strong><br>
-                Consumes the Opensea.io API to display NFT artwork</p>
+                <a href='https://github.com/mrjordantanner/trnkt' target='_blank' class='title project-title' id='p1'>TRNKT</a>
+                <p class='description hide-on-hover'>Crypto Art Gallery | <strong>React.js</strong>
+                <p class='description-2 hide-on-hover' data-project-description>Consumes the Opensea.io API to display NFT artwork.  Save collections in local storage.</p>
             </div>
 
-            <div class='image desktop-only'><img src='/public/images/trnkt.gif' alt='trnkt-app image' id='p1-image'></div>
+            <div class='image desktop-only'><img class ="project-image" src='/public/images/trnkt.gif' alt='trnkt-app image' id='p1-image'></div>
             <div class='image mobile-only'><img src='/public/images/trnkt.gif' alt='trnkt-app image'></div>
 
         </div>
-        <div class='nav-button-container'><a href='#project-2' class='button' data-scroll-to>Next</a></div>
-        <!-- <div class='divider-full'></div> -->
+        <div class='next-button-container'><a href='#project-2' class='button' data-scroll-to>Next</a></div>
     </section>
     <!--Endregion-->
 
@@ -194,28 +192,28 @@
         <div data-scroll class='project'>
 
             <div data-scroll data-scroll-speed='10' class='header'>
-                <h1 class='text' id="p2-number">02</h1>
+                <h1 class='text hide-on-hover'>02</h1>
             </div>
             
             <div data-scroll data-scroll-speed='4' class='title-container' >
 
                 <div class="hover-label desktop-only-block" id="p2-hover-label">
-                    <div class="angled-line"></div>
-                    <div class="horizontal-line"></div>
-                    <div class="hover-text">[ Hover ]</div>
+                    <div class="angled-line hide-on-hover"></div>
+                    <div class="horizontal-line hide-on-hover"></div>
+                    <div class="hover-text hide-on-hover">[ Hover ]</div>
                   </div>
 
-                <a href='https://main.doep4ode9s98d.amplifyapp.com/' target='_blank' class='title' id='p2'>Dashboard</a>
-                <p class='description' id="p2-description">Analytics Dashboard | <strong>React, MaterialUI</strong></p>
+                <a href='https://main.doep4ode9s98d.amplifyapp.com/' target='_blank' class='title project-title' id='p2'>Dash v1</a>
+                <p class='description hide-on-hover'>Analytics Dashboard | <strong>React.js, Vite, MUI, DevExpress</strong></p>
+                <p class='description-2 hide-on-hover'>Built to match given design specs, this frontend dashboard demo displays simulated website analytics data.</p>
             </div>
 
-            <div class='image desktop-only'><img src='/public/images/Analytics-Dashboard-v1.png' alt='dashboard app image' id='p2-image'></div>
+            <div class='image desktop-only'><img class ="project-image" src='/public/images/Analytics-Dashboard-v1.png' alt='dashboard app image' id='p2-image'></div>
             <div class='image mobile-only'><img src='/public/images/Analytics-Dashboard-v1.png' alt='dashboard app image'></div>   
             
 
         </div>
-        <div class='nav-button-container'><a href='#project-3' class='button' data-scroll-to>Next</a></div>
-        <!-- <div class='divider-full'></div> -->
+        <div class='next-button-container'><a href='#project-3' class='button' data-scroll-to>Next</a></div>
     </section>
     <!--Endregion-->
     
@@ -228,27 +226,28 @@
         <div data-scroll class='project'>
 
             <div data-scroll data-scroll-speed='10' class='header'>
-                <h1 class='text' id="p3-number">03</h1>
+                <h1 class='text hide-on-hover'>03</h1>
             </div>
 
             <div data-scroll data-scroll-speed='4' class='title-container' >
 
                 <div class="hover-label desktop-only-block" id="p3-hover-label">
-                    <div class="angled-line"></div>
-                    <div class="horizontal-line"></div>
-                    <div class="hover-text">[ Hover ]</div>
+                    <div class="angled-line hide-on-hover"></div>
+                    <div class="horizontal-line hide-on-hover"></div>
+                    <div class="hover-text hide-on-hover">[ Hover ]</div>
                   </div>
 
-                <a href='https://jordantanner.itch.io/super-drillboy' target='_blank' class='title' id='p3'>Super Drillboy</a>
-                <p class='description' id="p3-description">Infinite Falling Game | <strong>Unity, C#</strong></p>
+                <a href='https://jordantanner.itch.io/super-drillboy' target='_blank' class='title project-title' id='p3'>Super Drillboy</a>
+                <p class='description hide-on-hover'>Mobile & PC Game | <strong>Unity, C#, Unity Cloud</strong></p>
+                <p class='description-2 hide-on-hover'>Infinite falling and drilling game with procedurally generated content.<br>Fall as far as you can, avoiding hazards and collecting gems to speed your progress.</p>
             </div>
             
 
-            <div class='image desktop-only'><img src='/public/images/Super-Drillboy-GIF-1.gif' alt='super drillboy gameplay image' id='p3-image'></div>
+            <div class='image desktop-only'><img class ="project-image" src='/public/images/Super-Drillboy-GIF-1.gif' alt='super drillboy gameplay image'></div>
             <div class='image mobile-only'><img src='/public/images/Super-Drillboy-GIF-1.gif' alt='super drillboy gameplay image'></div>
 
         </div>
-        <div class='nav-button-container'><a href='#project-4' class='button' data-scroll-to>Next</a></div>
+        <div class='next-button-container'><a href='#project-4' class='button' data-scroll-to>Next</a></div>
         <!-- <div class='divider-full'></div> -->
     </section>
     <!--Endregion-->
@@ -262,26 +261,27 @@
         <div data-scroll class='project'>
 
             <div data-scroll data-scroll-speed='10' class='header'>
-                <h1 class='text' id="p4-number">04</h1>
+                <h1 class='text hide-on-hover'>04</h1>
             </div>
 
             <div data-scroll data-scroll-speed='4' class='title-container'>
 
-                <div class="hover-label desktop-only-block" id="p4-hover-label">
-                    <div class="angled-line"></div>
-                    <div class="horizontal-line"></div>
-                    <div class="hover-text">[ Hover ]</div>
+                <div class="hover-label desktop-only-block">
+                    <div class="angled-line hide-on-hover"></div>
+                    <div class="horizontal-line hide-on-hover"></div>
+                    <div class="hover-text hide-on-hover">[ Hover ]</div>
                   </div>
 
-                <a href='https://jordantanner.itch.io/arcane-outlaw' target='_blank' class='title' id='p4'>Arcane Outlaw</a>
-                <p class='description' id="p4-description">Shooting Gallery Game | <strong>Unity, C#</strong></p>
+                <a href='https://jordantanner.itch.io/arcane-outlaw' target='_blank' class='title project-title' id='p4'>Arcane Outlaw</a>
+                <p class='description hide-on-hover'>PC Game | <strong>Unity, C#, Unity Cloud</strong></p>
+                <p class='description-2 hide-on-hover'>Western/Fantasy shooter game featuring an Old West shooting gallery and fire-breathing hydras.</p>
             </div>
 
-            <div class='image desktop-only'><img src='/public/images/Arcane-Outlaw-GIF-1.gif' alt='arcane outlaw gameplay gif image' id='p4-image'></div>
+            <div class='image desktop-only'><img class ="project-image" src='/public/images/Arcane-Outlaw-GIF-1.gif' alt='arcane outlaw gameplay gif image'></div>
             <div class='image mobile-only'><img src='/public/images/Arcane-Outlaw-GIF-1.gif' alt='arcane outlaw gameplay gif image'></div>
 
         </div>
-        <div class='nav-button-container'><a href='#footer' class='button' data-scroll-to>Next</a></div>
+        <div class='next-button-container'><a href='#footer' class='button' data-scroll-to>Next</a></div>
         <!-- <div class='divider-full'></div> -->
     </section>
     <!--Endregion-->
@@ -290,29 +290,11 @@
         <div class='divider-full'></div>
     </section>
 
-
-    <section data-scroll-section class='section-half'>
-        <div class='divider-full'></div>
-    </section>
-
     <!--Region [Black] -->
-            <!-- Mobile version -->
     <section data-scroll data-scroll-section class='' id='footer'>
 
         <div class='contact-container'>
             <div class='container'>
-
-                <!-- <div class='text' data-scroll data-scroll-speed='2' data-scroll-direction="horizontal">
-                    <a href='https://jordantanner.itch.io/' target='_blank' class='link'>
-                        <div class='text'>Itch.io</div>
-                    </a>
-                </div> -->
-
-                <!-- <div class='text' data-scroll data-scroll-speed='6' data-scroll-direction="horizontal">
-                    <a href='https://twitter.com/mrjordantanner' target='_blank' class='link'>
-                        <div class='text'>Twitter X</div>
-                    </a>
-                </div> -->
 
                 <div class='contact-link-container'>
                     <a class='contact-link' href='mailto:mrjordantanner@gmail.com' target='_blank'>
@@ -322,7 +304,7 @@
                 </div>
 
                 <div class='contact-link-container'>
-                    <a class='contact-link' href='https://docs.google.com/document/d/1q05HNv9q2L9T4KF2bbFcbiOEILlxPA8liL6Ge9C-Yfc/edit?usp=sharing' 
+                    <a class='contact-link' href='/public/images/Jordan-Smith-Resume.pdf' 
                     target='_blank'>
                         <!-- <img class='icon' src='./public/images/icon-resume.png'> -->
                         <p class='text'>Resume</p>
@@ -345,16 +327,23 @@
 
             </div>
 
-            <footer class='footer-container'>
-                <div class='nav-button-container'><a href='#header' class='button' data-scroll-to>Top</a></div>
 
-                <h4 class='footer-text'><i>Updated May 2024</i></h4>
-                <h4 class='footer-text'><strong>Built with love by Jordan</strong></h4>
-            </footer>
         </div>
 
     </section>
     <!--Endregion-->
+
+
+    <section data-scroll-section>
+        <footer class='footer-container'>
+            <div class='next-button-container'><a href='#header' class='button' data-scroll-to>Top</a></div>
+    
+            <h4 class='footer-text'><i>Updated May 2024</i></h4>
+            <h4 class='footer-text'><strong>Built with love by Jordan</strong></h4>
+        </footer>
+    </section>
+
+
 
 
 </div>

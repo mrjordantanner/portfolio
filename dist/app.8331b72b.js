@@ -3335,26 +3335,20 @@ var scroll = new _locomotiveScroll.default({
 scroll.destroy();
 document.addEventListener("DOMContentLoaded", function (event) {
   event.stopPropagation();
-  scroll.init(); // console.log(event);
-  // console.log('scroll init');
+  scroll.init();
 }); // Scroll Anchors
-// Header Section
 
 $('#link-header').click(function () {
   scroll.scrollTo('top', {
     duration: 2000
   });
-}); // About Section
-
+});
 var aboutTarget = $('#intro');
 $('#link-about').click(function () {
   scroll.scrollTo(aboutTarget[0], {});
-}); // Navbar project links
-
+});
 var p1Target = $('#project-1');
 $('#link-work-1').click(function () {
-  var height = $(window).height();
-  var offset = height * -0;
   scroll.scrollTo(p1Target[0], {
     offset: offset
   });
@@ -3370,66 +3364,22 @@ $('#link-work-3').click(function () {
 var p4Target = $('#project-4');
 $('#link-work-4').click(function () {
   scroll.scrollTo(p4Target[0], {});
-}); // Contact Section
-
+});
 var contactTarget = $('#contact');
 $('#link-contact').click(function () {
   scroll.scrollTo(contactTarget[0], {
     duration: 2000
   });
-}); // Project images show/hide
+}); // Project Section - Show/Hide elements on hover
 
-$('#p1-image').hide();
-$('#p1').mouseenter(function () {
-  $('#p1-image').stop(true, true).fadeIn();
-  $('#p1-hover-label').children().addClass('hidden');
-  $('#p1-description').addClass('hidden');
-  $('#p1-number').addClass('hidden');
+$('.project-image').hide();
+$('.project-title').mouseenter(function () {
+  $('.project-image').stop(true, true).fadeIn();
+  $('.hide-on-hover').addClass('hidden');
 });
-$('#p1').mouseout(function () {
-  $('#p1-image').stop(true, true).fadeOut();
-  $('#p1-hover-label').children().removeClass('hidden');
-  $('#p1-description').removeClass('hidden');
-  $('#p1-number').removeClass('hidden');
-});
-$('#p2-image').hide();
-$('#p2').mouseenter(function () {
-  $('#p2-image').stop(true, true).fadeIn();
-  $('#p2-hover-label').children().addClass('hidden');
-  $('#p2-description').addClass('hidden');
-  $('#p2-number').addClass('hidden');
-});
-$('#p2').mouseout(function () {
-  $('#p2-image').stop(true, true).fadeOut();
-  $('#p2-hover-label').children().removeClass('hidden');
-  $('#p2-description').removeClass('hidden');
-  $('#p2-number').removeClass('hidden');
-});
-$('#p3-image').hide();
-$('#p3').mouseenter(function () {
-  $('#p3-image').stop(true, true).fadeIn();
-  $('#p3-hover-label').children().addClass('hidden');
-  $('#p3-description').addClass('hidden');
-  $('#p3-number').addClass('hidden');
-});
-$('#p3').mouseout(function () {
-  $('#p3-image').stop(true, true).fadeOut();
-  $('#p3-hover-label').children().removeClass('hidden');
-  $('#p3-description').removeClass('hidden');
-  $('#p3-number').removeClass('hidden');
-});
-$('#p4-image').hide();
-$('#p4').mouseenter(function () {
-  $('#p4-image').stop(true, true).fadeIn();
-  $('#p4-hover-label').children().addClass('hidden');
-  $('#p4-description').addClass('hidden');
-  $('#p4-number').addClass('hidden');
-});
-$('#p4').mouseout(function () {
-  $('#p4-image').stop(true, true).fadeOut();
-  $('#p4-hover-label').children().removeClass('hidden');
-  $('#p4-description').removeClass('hidden');
-  $('#p4-number').removeClass('hidden');
+$('.project-title').mouseout(function () {
+  $('.project-image').stop(true, true).fadeOut();
+  $('.hide-on-hover').removeClass('hidden');
 });
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
