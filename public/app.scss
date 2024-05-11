@@ -722,7 +722,7 @@ $angled-line-width: 150px;
             font-family: Akzidensk, Arial, Helvetica, sans-serif;
             position: absolute;
             color: var(--color-primary);
-            margin: 0px 0px 150px 50px;
+            margin: 0px 0px 150px 55px;
             font-size: 11rem;
             white-space: nowrap;
             z-index: 5;
@@ -832,19 +832,16 @@ $angled-line-width: 150px;
 
     .contact-link-container {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         height: 8rem;
 
-        
         .contact-link {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            width: 100%;
             height: 100%;
             transition: all 0.15s;
-            //background-color: rgba(0, 0, 255, 0.3);
 
             &:hover {
                 cursor: pointer;
