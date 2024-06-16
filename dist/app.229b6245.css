@@ -2,13 +2,13 @@
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  transition: background 0.5s ease, color 0.15s ease;
+  transition: color 0.5s ease;
 }
 
 .outline {
   font-family: Akzidensk, Arial, Helvetica, sans-serif;
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-primary);
+  -webkit-text-stroke: 2px var(--color-primary);
 }
 
 @font-face {
@@ -94,10 +94,8 @@ html.has-scroll-dragging {
   right: 0;
   background-color: var(--color-primary);
   opacity: var(--scrollbar-opacity);
-  /* width: 7px; */
   width: 11px;
   max-width: 0.8vw;
-  /* border-radius: 10px; */
   margin: 2px;
   cursor: -webkit-grab;
   cursor: grab;
@@ -151,8 +149,8 @@ body {
   background: var(--color-background);
   color: var(--color-primary);
   margin: 0px;
-  opacity: 1;
-  transition: background 0.35s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 0;
+  transition: background 0.35s ease-in-out, color 2.5s ease-in-out, opacity 1s ease-in-out;
 }
 body p {
   font-family: "Akzidensk Light", sans-serif;
@@ -196,11 +194,6 @@ body a {
   margin: 0px;
   padding: 0px 1rem;
   font-size: 1.25rem;
-}
-
-body.fade-out {
-  opacity: 0;
-  transition: none;
 }
 
 .scroll-container {
@@ -259,12 +252,6 @@ body.fade-out {
     opacity: 1;
   }
 }
-.skill {
-  background-color: var(--color-secondary);
-  font-size: 2rem;
-  font-weight: bold;
-}
-
 .external-link {
   font-weight: bold;
   font-family: "Akzidensk Bold", sans-serif;
@@ -502,10 +489,10 @@ body.fade-out {
 .header .headline {
   font-family: Akzidensk, Arial, Helvetica, sans-serif;
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-primary);
+  -webkit-text-stroke: 2px var(--color-primary);
   text-align: left;
   font-size: 10rem;
-  margin: 0px 0px 50px 100px;
+  margin: 0px 0px 150px 100px;
   padding: 0rem;
   width: 100%;
   white-space: nowrap;
@@ -515,7 +502,7 @@ body.fade-out {
   font-size: 2rem;
   font-weight: 500;
   text-align: left;
-  margin: 0px 0px 100px 500px;
+  margin: 0px 0px 150px 500px;
   padding: 0rem;
   width: 100%;
 }
@@ -610,7 +597,7 @@ body.fade-out {
 .project .title-container .title:hover {
   font-family: Akzidensk, Arial, Helvetica, sans-serif;
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-primary);
+  -webkit-text-stroke: 2px var(--color-primary);
 }
 .project .title-container .description {
   font-size: 1.75rem;
@@ -634,7 +621,7 @@ body.fade-out {
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: all 0.25s;
+  transition: all 0.3s;
 }
 .project .image img {
   height: 100vh;
@@ -671,6 +658,28 @@ body.fade-out {
   text-wrap: nowrap;
   top: -6px;
   left: 360px;
+}
+
+.hide-on-hover {
+  transition: all 0.25s ease-in-out;
+}
+
+.project-image {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  display: none;
+  /* Initially hide the image */
+}
+
+.fade-in {
+  display: block;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .contact-container {
@@ -869,7 +878,7 @@ body.fade-out {
   .header .headline-2 {
     font-family: Akzidensk, Arial, Helvetica, sans-serif;
     color: transparent;
-    -webkit-text-stroke: 1.5px var(--color-primary);
+    -webkit-text-stroke: 2px var(--color-primary);
     font-size: 20vmin;
     margin: 0px 0px 0px 60px;
     width: 100%;

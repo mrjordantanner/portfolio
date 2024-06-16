@@ -1,16 +1,15 @@
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    transition: background 0.5s ease, color 0.15s ease;
+    transition: color 0.5s ease;
 }
 
-// FONTS AND TEXT STYLES
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 @mixin outline {
     font-family: Akzidensk, Arial, Helvetica, sans-serif;
     color: transparent; 
-    -webkit-text-stroke: 1.5px var(--color-primary); 
+    -webkit-text-stroke: 2px var(--color-primary); 
 }
 
 .outline {
@@ -95,13 +94,10 @@ html.has-scroll-smooth {
     position: absolute;
     top: 0;
     right: 0;
-    // background-color: black;
     background-color: var(--color-primary);
     opacity: var(--scrollbar-opacity);
-    /* width: 7px; */
     width: 11px;
     max-width: 0.8vw;
-    /* border-radius: 10px; */
     margin: 2px;
     cursor: -webkit-grab;
     cursor: grab; }
@@ -126,23 +122,14 @@ $font-link: 'Akzidensk Bold', sans-serif;
 $link-dark: cyan;
 $link-light: rgb(0, 38, 255);
 
-//$bg-dark: rgb(33, 35, 52);
 $bg-dark: #2b3654;
 $bg-light: rgb(218, 211, 201);
-// $bg-dark: rgb(57, 60, 87);
-// $bg-light: rgb(211, 211, 231);
 
-// $primary-dark: rgb(240, 240, 240);
 $primary-dark: #91a3c7;
-//$primary-light: rgb(57, 60, 87);
 $primary-light: rgb(55, 37, 37);
 
-// $secondary-dark: rgb(216, 42, 109);
-//$secondary-dark: palegreen;
 $secondary-dark: #f4b570;
 $secondary-light: rgb(153, 121, 123);
-// $secondary-light: rgb(98, 72, 129);
-//$secondary-light: rgb(62, 62, 62);
 
 $color-divider-light: rgb(209, 202, 192);
 $color-divider-dark: #344162;
@@ -156,6 +143,8 @@ $color-footer-dark: $secondary-dark;
 $color-nav-button-light: $secondary-light;
 $color-nav-button-dark: $secondary-dark;
 
+$angled-line-width: 150px;
+
 // Default Theme
 :root {
     --scrollbar-opacity: 0.5;
@@ -163,8 +152,6 @@ $color-nav-button-dark: $secondary-dark;
     --color-primary: #{$primary-dark};
     --color-secondary: #{$secondary-dark};
     --color-link: #{$link-dark};
-    // --color-bg-footer: #{$bg-footer-dark};
-    // --color-footer-color: #{$color-footer-dark};
     --color-bg-footer: #{$secondary-dark};
     --color-footer-color: #{$bg-dark};
     --color-nav-button: #{$color-nav-button-dark};
@@ -178,15 +165,12 @@ $color-nav-button-dark: $secondary-dark;
     --color-primary: #{$primary-light};
     --color-secondary: #{$secondary-light};
     --color-link: #{$link-light};
-    // --color-bg-footer: #{$bg-footer-light};
-    // --color-footer-color: #{$color-footer-light};
     --color-bg-footer: #{$secondary-light};
     --color-footer-color: #{$bg-light};
     --color-nav-button: #{$color-nav-button-light};
     --color-divider: #{$color-divider-light};
 }
 
-// GENERAL
 html {
     height: 100vh;
     overflow: hidden
@@ -201,10 +185,10 @@ body {
     background: var(--color-background);
     color: var(--color-primary);
     margin: 0px;
-    opacity: 1;
-    transition: background .35s cubic-bezier(.215,.61,.355,1),  // * THIS ONE *
-        color 0.5s cubic-bezier(.215,.61,.355,1), 
-        opacity 2s cubic-bezier(.215,.61,.355,1);
+    opacity: 0;
+    transition: background 0.35s ease-in-out,  // * THIS ONE *
+        color 2.5s ease-in-out,
+        opacity 1s ease-in-out;
 
     p {
         font-family: $font-p;
@@ -259,10 +243,6 @@ body {
     }
 }
 
-body.fade-out {
-    opacity: 0;
-    transition: none;
-}
 
 .scroll-container {
     margin: 0px;
@@ -321,13 +301,6 @@ body.fade-out {
     animation: blink 0.01s infinite; 
   }
 
-.skill {
-    background-color: var(--color-secondary);
-    font-size: 2rem;
-    font-weight: bold;
-    //margin: 0px 0px 400px 0px;
-}
-  
 
 // NAVIGATION, LINKS, AND UI
 //Region [Gray]
@@ -601,7 +574,7 @@ body.fade-out {
         @include outline;
         text-align: left;
         font-size: 10rem;
-        margin: 0px 0px 50px 100px;
+        margin: 0px 0px 150px 100px;
         padding: 0rem;
         width: 100%;
         white-space: nowrap;
@@ -612,7 +585,7 @@ body.fade-out {
         font-size: 2rem;
         font-weight: 500;
         text-align: left;
-        margin: 0px 0px 100px 500px;
+        margin: 0px 0px 150px 500px;
         padding: 0rem;
         width: 100%;
 
@@ -686,8 +659,6 @@ body.fade-out {
 //endregion
 
 
-$angled-line-width: 150px;
-
 // PROJECT
 //Region [Purple]
 .project {
@@ -758,7 +729,7 @@ $angled-line-width: 150px;
         justify-content: center;
         align-items: center;
         opacity: 1;
-        transition: all 0.25s;
+        transition: all 0.3s;
 
         img {
             height: 100vh;
@@ -802,6 +773,30 @@ $angled-line-width: 150px;
 
       }
  }
+
+
+.hide-on-hover {
+    transition: all 0.25s ease-in-out;
+}
+
+.project-image {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    display: none; /* Initially hide the image */
+}
+
+.fade-in {
+    display: block;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
 //endregion
 
 

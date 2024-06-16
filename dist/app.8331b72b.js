@@ -3296,22 +3296,7 @@ var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Document Fade
-document.body.className += ' fade-out';
-$(function () {
-  $('body').removeClass('fade-out');
-}); // Theme switch
-
-document.getElementById('theme-toggle').addEventListener('click', OnClickThemeToggle);
-
-function OnClickThemeToggle() {
-  document.body.classList.toggle('alternate');
-  var themeToggle = document.getElementById('theme-toggle');
-  themeToggle.classList.toggle('rotate-animation-1');
-  themeToggle.classList.toggle('rotate-animation-2');
-} // New Scroll Instance
-
-
+// Initialize Locomotive Scroll Instance
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
@@ -3332,54 +3317,45 @@ var scroll = new _locomotiveScroll.default({
 
   }
 });
-scroll.destroy();
 document.addEventListener("DOMContentLoaded", function (event) {
-  event.stopPropagation();
+  document.body.classList.add('fade-in');
+  document.body.classList.remove('fade-out'); // Theme toggle switch
+
+  document.getElementById('theme-toggle').addEventListener('click', OnClickThemeToggle);
+
+  function OnClickThemeToggle() {
+    document.body.classList.toggle('alternate');
+    var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.classList.toggle('rotate-animation-1');
+    themeToggle.classList.toggle('rotate-animation-2');
+  } // Project Section - Show/Hide elements on hover
+
+
+  var projects = document.querySelectorAll('.project');
+  var hideOnHover = document.querySelectorAll('.hide-on-hover');
+  projects.forEach(function (project) {
+    var projectTitle = project.querySelector('.project-title');
+    var projectImage = project.querySelector('.project-image');
+
+    if (projectImage) {
+      projectTitle.addEventListener('mouseenter', function () {
+        projectImage.classList.add('fade-in');
+        projectImage.classList.remove('fade-out');
+        hideOnHover.forEach(function (el) {
+          return el.classList.add('fade-out');
+        });
+      });
+      projectTitle.addEventListener('mouseleave', function () {
+        projectImage.classList.remove('fade-in');
+        projectImage.classList.add('fade-out');
+        hideOnHover.forEach(function (el) {
+          return el.classList.remove('fade-out');
+        });
+      });
+    }
+  }); // Initialize scroll after DOM is fully loaded
+
   scroll.init();
-}); // Scroll Anchors
-
-$('#link-header').click(function () {
-  scroll.scrollTo('top', {
-    duration: 2000
-  });
-});
-var aboutTarget = $('#intro');
-$('#link-about').click(function () {
-  scroll.scrollTo(aboutTarget[0], {});
-});
-var p1Target = $('#project-1');
-$('#link-work-1').click(function () {
-  scroll.scrollTo(p1Target[0], {
-    offset: offset
-  });
-});
-var p2Target = $('#project-2');
-$('#link-work-2').click(function () {
-  scroll.scrollTo(p2Target[0], {});
-});
-var p3Target = $('#project-3');
-$('#link-work-3').click(function () {
-  scroll.scrollTo(p3Target[0], {});
-});
-var p4Target = $('#project-4');
-$('#link-work-4').click(function () {
-  scroll.scrollTo(p4Target[0], {});
-});
-var contactTarget = $('#contact');
-$('#link-contact').click(function () {
-  scroll.scrollTo(contactTarget[0], {
-    duration: 2000
-  });
-}); // Project Section - Show/Hide elements on hover
-
-$('.project-image').hide();
-$('.project-title').mouseenter(function () {
-  $('.project-image').stop(true, true).fadeIn();
-  $('.hide-on-hover').addClass('hidden');
-});
-$('.project-title').mouseout(function () {
-  $('.project-image').stop(true, true).fadeOut();
-  $('.hide-on-hover').removeClass('hidden');
 });
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -3409,7 +3385,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53968" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62617" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
