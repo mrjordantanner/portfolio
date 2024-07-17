@@ -1,0 +1,269 @@
+@import "/public/app.scss";
+
+// ANIMATIONS
+@mixin float {
+    display: none;
+	transform: translatey(0px);
+	animation: float 1.5s ease-in-out infinite;
+
+    @keyframes float {
+        0% {
+            transform: translatey(0px);
+            opacity: 1;
+        }
+        50% {
+            transform: translatey(-20px);
+            opacity: 0.6;
+        }
+        100% {
+            transform: translatey(0px);
+            opacity: 1;
+        }
+    }
+}
+
+.rotate-animation-1 {
+    animation: rotate-1 0.25s ease-in-out forwards;
+}
+
+.rotate-animation-2 {
+    animation: rotate-2 0.25s ease-in-out forwards;
+}
+
+@keyframes rotate-1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-2 {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+// ELEMENTS
+.intro-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    padding: 5px;
+    margin: 0px 50px;
+    width: 25vw;
+    min-width: 400px;
+    min-height: 80px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    pointer-events: all;
+
+    &:hover {
+        background-color: black;
+    }
+
+    &:active {
+        background-color: var(--color-secondary);
+    }
+}
+
+.button-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100px;
+    padding: 0px 75px;
+    pointer-events: none;
+    z-index: 30;
+}
+
+@mixin button-round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    opacity: 0.9;
+    border-radius: 50%;
+    font-size: 1rem;
+    background: var(--color-nav-button);
+    color: var(--color-background);
+    z-index: 10;
+    pointer-events: all;
+}
+
+.next-button {
+    @include float;
+    @include button-round;
+    border: 1px solid var(--color-background);
+    z-index: 10;
+    pointer-events: all;
+
+    &:hover {
+        width: 62px;
+        height: 62px;
+        transition: 0s linear;
+    }
+
+    &:active {
+        background-color: white;
+        width: 56px;
+        height: 56px;
+        transition: 0s linear;
+    }
+}
+
+.back-button {
+    @include button-round;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-secondary);
+    font-size: 0.75rem;
+    background: transparent;
+    color: var(--color-secondary);
+    position: absolute;
+    margin-top: 15px;
+    z-index: 10;
+    pointer-events: all;
+
+    &:hover {
+        width: 42px;
+        height: 42px;
+        transition: 0s linear;
+    }
+
+    &:active {
+        width: 36px;
+        height: 36px;
+        background-color: black;
+        transition: 0s linear;
+    }
+}
+
+@mixin top-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: var(--color-background);
+    border: 1px solid var(--color-primary);
+    color: var(--color-secondary);
+    cursor: pointer;
+    z-index: 3;
+
+    &:hover {
+        border: 2px solid var(--color-primary);
+        font-weight: bold;
+    }
+}
+
+#theme-toggle {
+    @include top-button;
+    right: 3rem;
+    top: 1.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--color-primary);
+    font-weight: bold;
+    border-radius: 50%;
+    z-index: 50;
+    pointer-events: all;
+    background: linear-gradient(-45deg, var(--color-background) 0%, var(--color-background) 50%, 
+        var(--color-secondary) 50%, var(--color-secondary) 100%);
+}
+
+.contact-button {
+    @include top-button;
+    right: 7rem;
+    top: 1.5rem;
+    width: 9rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-wrap: nowrap;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.theme-switch-container {
+    width: 50px;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 50;
+    display: block;
+    position: fixed;
+    right: 2.75rem;
+    top: 0.5rem;
+}
+
+.external-link {
+    font-weight: bold;
+    font-family: $font-link;
+    color: var(--color-link);
+    transition: all .15s;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+}
+
+// @keyframes blink {
+//     0% { opacity: 1; }
+//     50% { opacity: 0; }
+//     100% { opacity: 1; }
+//   }
+  
+// @mixin blinking {
+//     animation: blink 0.01s infinite; 
+//   }
+
+// .hover-label {
+//     @include blinking;
+//     //position: absolute;
+//     // background-color: red;
+//     // height: 80px;
+//     // width: 425px;
+
+//     .angled-line {
+//         width: $angled-line-width;
+//         height: 1px;
+//         background-color: var(--color-secondary);
+//         transform: rotate(-30deg);
+//         transform-origin: top right;
+//       }
+      
+//       .horizontal-line {
+//         width: 200px; /* Length of the horizontal line */
+//         height: 1px;
+//         background-color: var(--color-secondary);
+//         margin-left: $angled-line-width;
+//       }
+      
+//       .hover-text {
+//         position: absolute;
+//         color: var(--color-secondary);
+//         font-weight: 600;
+//         text-wrap: nowrap;
+//         top: -6px;
+//         left: 360px;
+//       }
+
+//   }

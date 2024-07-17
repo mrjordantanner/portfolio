@@ -3300,13 +3300,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  lerp: 0.06,
-  // Linear Interpolation, 0 > 1 // Try 0.01
-  multiplier: 1.4,
-  // Effect Multiplier
+  lerp: 0.05,
+  // Linear Interpolation, 0 > 1 // Try 0.01  // was 0.06
+  multiplier: 1,
+  // Effect Multiplier   // was 1.4
   reloadOnContextChange: true,
   scrollFromAnywhere: true,
-  touchMultiplier: 3,
+  touchMultiplier: 2,
+  // was 3
   smoothMobile: 1,
   smartphone: {
     smooth: 1 // breakpoint: 767
@@ -3316,7 +3317,10 @@ var scroll = new _locomotiveScroll.default({
     smooth: 1 // breakpoint: 1024
 
   }
-});
+}); // document.getElementById('contact-button').addEventListener('click', function() {
+//     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+// },
+
 document.addEventListener("DOMContentLoaded", function (event) {
   document.body.classList.add('fade-in');
   document.body.classList.remove('fade-out'); // Theme toggle switch
@@ -3329,31 +3333,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
     themeToggle.classList.toggle('rotate-animation-1');
     themeToggle.classList.toggle('rotate-animation-2');
   } // Project Section - Show/Hide elements on hover
+  // const projects = document.querySelectorAll('.project');
+  // const hideOnHover = document.querySelectorAll('.hide-on-hover');
+  // projects.forEach(project => {
+  //     const projectTitle = project.querySelector('.project-title');
+  //     const projectImage = project.querySelector('.project-image');
+  //     if (projectImage) {
+  //         projectTitle.addEventListener('mouseenter', function() {
+  //             projectImage.classList.add('fade-in');
+  //             projectImage.classList.remove('fade-out');
+  //             hideOnHover.forEach(el => el.classList.add('fade-out'))
+  //         });
+  //         projectTitle.addEventListener('mouseleave', function() {
+  //             projectImage.classList.remove('fade-in');
+  //             projectImage.classList.add('fade-out');
+  //             hideOnHover.forEach(el => el.classList.remove('fade-out'));
+  //         });
+  //     }
+  // });
+  // Initialize scroll after DOM is fully loaded
 
-
-  var projects = document.querySelectorAll('.project');
-  var hideOnHover = document.querySelectorAll('.hide-on-hover');
-  projects.forEach(function (project) {
-    var projectTitle = project.querySelector('.project-title');
-    var projectImage = project.querySelector('.project-image');
-
-    if (projectImage) {
-      projectTitle.addEventListener('mouseenter', function () {
-        projectImage.classList.add('fade-in');
-        projectImage.classList.remove('fade-out');
-        hideOnHover.forEach(function (el) {
-          return el.classList.add('fade-out');
-        });
-      });
-      projectTitle.addEventListener('mouseleave', function () {
-        projectImage.classList.remove('fade-in');
-        projectImage.classList.add('fade-out');
-        hideOnHover.forEach(function (el) {
-          return el.classList.remove('fade-out');
-        });
-      });
-    }
-  }); // Initialize scroll after DOM is fully loaded
 
   scroll.init();
 });
@@ -3385,7 +3384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53561" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
