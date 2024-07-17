@@ -39,7 +39,8 @@
 
 <main>
 <article>
-<div data-scroll-container class="o-scroll" id="js-scroll">
+<!-- DESKTOP VERSION -->
+<div data-scroll-container class="o-scroll desktop-only" id="js-scroll">
 
     <!-- HEADER -->
     <!-- Region [Gray] -->
@@ -70,7 +71,7 @@
 
     <!-- INTRO -->
     <!-- Region [Gray] -->
-    <section data-scroll-section class="section" id="intro">
+    <section data-scroll-section class="" id="intro">
         <div class="top button-container"><a href="#header" class="back-button" data-scroll-to>Back</a></div>
         <div class="photo-container" data-scroll data-scroll-speed="18">
             <img class="img-headshot" src="/public/images/JT-Blog-Headshot-1.jpg" alt="headshot image" id="headshot-image">
@@ -124,7 +125,7 @@
 
     <!-- PROJECT: SUPER DRILLBOY -->
     <!-- Region [Gray] -->
-    <section data-scroll-section class="section" id="project-1">
+    <section data-scroll-section class="" id="project-1">
         <div class="top button-container"><a href="#intro" class="back-button" data-scroll-to>Back</a></div>
         <div data-scroll data-scroll-speed="10" class="project-number"><h1 class="text">01</h1></div>
 
@@ -164,7 +165,7 @@
 
     <!-- PROJECT: TRNKT -->
     <!-- Region [Gray] -->
-    <section data-scroll-section class="section" id="project-2">
+    <section data-scroll-section class="" id="project-2">
         <div class="top button-container"><a href="#project-1" class="back-button" data-scroll-to>Back</a></div>
         <div data-scroll data-scroll-speed="10" class="project-number"><h1 class="text">02</h1></div>
 
@@ -204,7 +205,7 @@
 
     <!-- PROJECT: ARCANE OUTLAW -->
     <!-- Region [Gray] -->
-    <section data-scroll-section class="section" id="project-3">
+    <section data-scroll-section class="" id="project-3">
         <div class="top button-container"><a href="#project-2" class="back-button" data-scroll-to>Back</a></div>
         <div data-scroll data-scroll-speed="10" class="project-number"><h1 class="text">03</h1></div>
 
@@ -243,18 +244,18 @@
 
 
     <!-- FOOTER -->
-     <!-- Region [Midnight]-->
-    <section data-scroll-section class="section" id="contact">
+     <!-- Region [Gray]-->
+    <section data-scroll-section class="" id="contact">
         <div class="contact-container">
             <div class="container">
 
                 <div class="contact-link-container" data-scroll data-scroll-speed="1" data-scroll-direction="horizontal">
-                    <a class="contact-link" href="mailto:mrjordantanner@gmail.com" target="_blank">
+                    <a class="contact-link" href="mailto:employjordansmith@gmail.com" target="_blank">
                         <p class="text">Email</p>
                     </a>
                 </div>
                 <div class="contact-link-container"  data-scroll data-scroll-speed="2" data-scroll-direction="horizontal">
-                    <a class="contact-link" href="https://docs.google.com/document/d/1e8nTVbKWVlQkuV54Yq8Yoz6KG3eIJS7a37BNYgqaNMA/edit?usp=sharing" target="_blank">
+                    <a class="contact-link" href="https://drive.google.com/file/d/1_ibQjkACSECHUN7LD6HHXH7rwVAoo7wk/view?usp=sharing" target="_blank">
                         <p class="text">Resume</p>
                     </a>
                 </div>
@@ -276,14 +277,230 @@
         <div class="footer-container">
             <h4 class="footer-text"><i>Updated July 2024</i></h4>
             <h4 class="footer-text"><strong>Built with love by Jordan</strong></h4>
+            <a class="" href="https://github.com/mrjordantanner/portfolio" target="_blank">View Source Code</a>
             <a class="" href="https://github.com/locomotivemtl/locomotive-scroll" target="_blank">locomotive-scroll.js</a>
         </div>
 
     </section>
     <!-- end region -->
-
-
 </div>
+<!-- END DESKTOP VERSION -->
+
+
+
+<!-- MOBILE VERSION -->
+<section class="mobile-only">
+
+    <!-- <section>
+        <div class="flex-section" style="border: 2px dashed yellow">
+            1
+        </div>
+    
+
+
+
+        <div class="flex-section" style="border: 2px dashed orange">
+            2</div>
+    </section> -->
+
+
+
+    <!-- HEADER -->
+    <!-- Region [Midnight] -->
+    <div class="flex-section">
+        <header class="header" id="header">
+            <div class="top-fill"></div>
+            <div class="">
+                <h1 class="headline">JORDAN SMITH</h1>
+                <h3 class="subline">Software Engineering & Game Development Portfolio</h3>
+            </div> 
+        </header>
+
+    </div>
+    <!-- end region -->
+
+    <hr class="divider-mobile"/>
+
+    <!-- INTRO -->
+    <!-- Region [Magenta] -->
+    <div class="flex-section" id="intro">
+
+        <div class="intro-mobile">
+
+            <div class="photo-container">
+                <img class="img-headshot" src="/public/images/JT-Blog-Headshot-1.jpg" alt="headshot image">
+            </div>
+    
+            <h1 class="name">Howdy!<br> I'm Jordan,</h1>
+            <h2 class="line one"><strong>
+                a Full-Stack Software Engineer & Game Developer in Austin, Texas.</strong></h2>
+
+            <p class="line two">
+                I'm currently seeking a new role where I can bring my blend of backend, frontend, and creative skills to the table.</p>
+            <p class="line three">
+                In this portfolio, I've chosen some recent projects to showcase.</p>
+
+            <a class="intro-button" 
+            href="https://drive.google.com/file/d/1ZsJ6OIYpSjLulcGuwjqTJZbA9DenC0NL/view?usp=sharing" 
+            target="_blank">Watch 90-second Intro Video</a>
+
+        </div>
+
+    </div>
+    <!-- end region -->
+
+    <hr class="divider-mobile"/>
+
+<!-- PROJECT: SUPER DRILLBOY -->
+<!-- Region [Magenta] -->
+<div class="flex-section" id="project-1">
+    <div class="project-container">
+ 
+         <div class="project-number"><h1 class="text">01</h1></div>
+ 
+         <a href="https://jordantanner.itch.io/super-drillboy" target="_blank" class="project-title" id="p1">
+         Super Drillboy</a>
+ 
+         <div class="project-subtitle">
+             <span class="text">
+                 <strong>Mobile Game<br></strong>
+                 Unity, C#, Unity Cloud
+             </span>
+         </div>
+ 
+         <p class="project-description">
+             Drill and blast your way downward through infinite, procedurally generated levels.<br><br>
+             Go as deep as you can, avoiding hazards and collecting gems to gain speed boosts and buy upgrades.
+         </p>
+ 
+         <div class="project-link-container">
+             <a class="project-link-button desktop-only" href="https://jordantanner.itch.io/super-drillboy" target="_blank">Play Game in Browser </a>
+             <a class="project-link-button" href="https://github.com/mrjordantanner/super-drillboy" target="_blank">View Source Code</a>
+         </div>
+ 
+         <div class="project-image">
+             <img src="/public/images/Super-Drillboy-GIF-1.gif" alt="super drillboy gameplay image">
+         </div>
+     </div>
+ </div>
+ <!-- end region -->
+ 
+ <hr class="divider-mobile"/>
+ 
+ <!-- PROJECT: TRNKT -->
+ <!-- Region [Magenta] -->
+ <div class="flex-section" id="project-2">
+     <div class="project-container">
+ 
+         <div class="project-number"><h1 class="text">02</h1></div>
+ 
+         <a href="https://github.com/mrjordantanner/trnkt-app" target="_blank" class="project-title" id="p2">
+         TRNKT</a>
+ 
+         <div class="project-subtitle">
+             <span class="text">
+                 <strong>Full Stack Web Application<br></strong>
+                 React, TypeScript, ASP.NET, AWS, Opensea API
+             </span>
+         </div>
+ 
+         <p class="project-description">
+             Explore the strange world of crypto artwork that is NFTs.<br>
+             Users can create a free account to browse and collect NFT art pieces provided by the Opensea API.
+         </p>
+ 
+         <div class="project-link-container">
+             <a class="project-link-button" href="https://github.com/mrjordantanner/trnkt-app" target="_blank">Launch App</a>
+             <a class="project-link-button" href="https://github.com/mrjordantanner/trnkt-app" target="_blank">View Source Code</a>
+         </div>
+ 
+         <div class="project-image">
+             <img src="/public/images/Trnkt-Demo-GIF.gif" alt="TRNKT web app image">
+         </div>
+     </div>
+ </div>
+ <!-- end region -->
+ 
+ <hr class="divider-mobile"/>
+ 
+ <!-- PROJECT: ARCANE OUTLAW -->
+ <!-- Region [Magenta] -->
+ <div class="flex-section" id="project-3">
+     <div class="project-container">
+ 
+         <div class="project-number"><h1 class="text">03</h1></div>
+ 
+         <a href="https://github.com/mrjordantanner/arcane-outlaw" target="_blank" class="project-title" id="p3">
+         Arcane Outlaw</a>
+ 
+         <div class="project-subtitle">
+             <span class="text">
+                 <strong>PC Game</strong><br>
+                 Unity, C#, Unity Cloud
+             </span>
+         </div>
+ 
+         <p class="project-description">
+             Western meets Fantasy in this Old West shooting gallery game featuring fire-breathing Hydras.<br>
+             Defeat increasingly harder rounds of enemies using summoning spells and of course, your trusty six-shooter.
+         </p>
+ 
+         <div class="project-link-container">
+             <a class="project-link-button desktop-only" href="https://jordantanner.itch.io/arcane-outlaw" target="_blank">Play Game in Browser</a>
+             <a class="project-link-button" href="https://github.com/mrjordantanner/arcane-outlaw" target="_blank">View Source Code</a>
+         </div>
+ 
+         <div class="project-image">
+             <img src="/public/images/Arcane-Outlaw-GIF-1.gif" alt="Arcane Outlaw gameplay image">
+         </div>
+     </div>
+ </div>
+ <!-- end region -->
+ 
+ <hr class="divider-mobile"/>
+
+    <!-- FOOTER -->
+    <!-- Region [Midnight]-->
+    <div class="flex-section" id="contact">
+    <div class="contact-container">
+        <div class="container">
+
+            <div class="contact-link-container">
+                <a class="contact-link" href="mailto:employjordansmith@gmail.com" target="_blank">
+                    <p class="text">Email</p>
+                </a>
+            </div>
+            <div class="contact-link-container">
+                <a class="contact-link" href="https://drive.google.com/file/d/1_ibQjkACSECHUN7LD6HHXH7rwVAoo7wk/view?usp=sharing" target="_blank">
+                    <p class="text">Resume</p>
+                </a>
+            </div>
+            <div class="contact-link-container">
+                <a class="contact-link" href="https://github.com/mrjordantanner" target="_blank">
+                    <p class="text">GitHub</p>
+                </a>
+            </div>
+            <div class="contact-link-container">
+                <a class="contact-link" href="https://www.linkedin.com/in/jordantanner/" target="_blank">
+                    <p class="text">LinkedIn</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <h4 class="footer-text"><i>Updated July 2024</i></h4>
+        <h4 class="footer-text"><strong>Built with love by Jordan</strong></h4>
+        <a class="" href="https://github.com/mrjordantanner/portfolio" target="_blank">View Source Code</a>
+        <a class="" href="https://github.com/locomotivemtl/locomotive-scroll" target="_blank">locomotive-scroll.js</a>
+    </div>
+</div>
+<!-- end region -->
+</section>
+<!-- END MOBILE VERSION -->
+
+
 </article>
 </main>
 <script src="/public/app.js" defer></script>

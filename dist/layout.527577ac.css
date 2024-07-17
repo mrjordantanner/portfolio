@@ -49,7 +49,9 @@
 
 html {
   height: 100vh;
-  overflow: hidden;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
@@ -62,7 +64,16 @@ body {
   color: var(--color-primary);
   margin: 0px;
   opacity: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
   transition: background 0.35s ease-in-out, color 2.5s ease-in-out, opacity 1s ease-in-out;
+}
+body section {
+  width: 100vw;
+  height: 100vh;
+  padding: 0rem;
+  transition: background 3s;
+  overflow-x: hidden;
 }
 body p {
   font-family: "Akzidensk Light", sans-serif;
@@ -352,22 +363,7 @@ hr {
 .fullscreen {
   width: 100vw;
   height: 100vh;
-}
-
-.section {
-  width: 100vw;
-  height: 100vh;
-  padding: 0rem;
-  transition: background 3s;
-}
-
-.section-half {
-  width: 100vw;
-  height: 100vh;
-  padding: 0rem;
-  transition: background 3s;
-  height: 50vh;
-  min-height: 50vh;
+  overflow-x: hidden;
 }
 
 .scroll-container {
@@ -376,7 +372,7 @@ hr {
 }
 
 .desktop-only {
-  display: flex !important;
+  display: block !important;
 }
 
 .desktop-only-block {
@@ -396,6 +392,7 @@ hr {
 .header {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -432,6 +429,7 @@ hr {
 .intro {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -554,8 +552,7 @@ hr {
   bottom: 15%;
   z-index: -5;
 }
-
-.project-link-button {
+.project-link-container .project-link-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -568,7 +565,7 @@ hr {
   border: 2px solid var(--color-secondary);
   border-radius: 10px;
 }
-.project-link-button:hover {
+.project-link-container .project-link-button:hover {
   background-color: black;
   color: white;
 }
