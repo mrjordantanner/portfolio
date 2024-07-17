@@ -233,6 +233,8 @@
     position: absolute;
     display: block;
     z-index: 15;
+    border-top: 4px solid var(--color-blackwhite);
+    //border-bottom: 2px solid var(--color-blackwhite);
 }
 
  .project-number {
@@ -421,7 +423,7 @@
     background-color: black;
 
     .footer-text {
-        color: var(--color-secondary) !important;
+        color: white;
         font-size: 1rem;
     }
 }

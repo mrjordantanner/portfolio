@@ -322,6 +322,9 @@ hr {
     border-top: 1px dashed gray;
     border-bottom: 1px dashed gray;
   }
+  .mobile-only .headline {
+    -webkit-text-stroke: 0.75px var(--color-primary);
+  }
   .mobile-only .top {
     position: relative;
     top: 0px;
@@ -377,7 +380,7 @@ hr {
     text-align: right;
     width: 90vw;
     font-weight: bold;
-    font-size: 4.5rem;
+    font-size: 3.75rem;
   }
   .mobile-only .intro-mobile .line {
     text-align: center;
@@ -478,6 +481,7 @@ hr {
     left: unset;
     width: 75%;
     padding: 0 30px;
+    z-index: 500;
   }
   .mobile-only .project-link-container .project-link-button {
     background-color: black;
@@ -485,6 +489,7 @@ hr {
     max-height: 50px;
     margin: 5px;
     font-size: 1rem;
+    z-index: 500;
   }
   .mobile-only .project-image {
     display: flex;
@@ -517,7 +522,6 @@ hr {
     left: 0px;
     justify-content: center;
     align-items: flex-end;
-    border: 1px solid red;
   }
   .mobile-only .contact-container .contact-link-container {
     width: 95vw;
@@ -532,7 +536,7 @@ hr {
   }
   .mobile-only .contact-container .contact-link-container .contact-link .text {
     font-size: 6rem;
-    -webkit-text-stroke: 0.5px var(--color-background);
+    -webkit-text-stroke: 0.75px var(--color-background);
   }
   .mobile-only .footer-container {
     position: relative;
