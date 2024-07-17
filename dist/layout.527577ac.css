@@ -24,13 +24,14 @@
 :root {
   --scrollbar-opacity: 0.5;
   --color-background: #2b3654;
-  --color-primary: #93aee4;
+  --color-primary: white;
   --color-secondary: #f4b570;
   --color-link: cyan;
   --color-bg-footer: #f4b570;
   --color-footer-color: #2b3654;
   --color-nav-button: #f4b570;
   --color-divider: #344162;
+  --color-blackwhite: white;
 }
 
 .alternate {
@@ -43,6 +44,7 @@
   --color-footer-color: #c1b2b2;
   --color-nav-button: darkslateblue;
   --color-divider: #a29d95;
+  --color-blackwhite: black;
 }
 
 html {
@@ -491,9 +493,9 @@ hr {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
-  padding: 0 40px 0 0;
+  padding: 125px 20px 0 0;
   width: 100vw;
   height: 100vh;
 }
@@ -505,11 +507,11 @@ hr {
 .project-title {
   font-family: Akzidensk, Arial, Helvetica, sans-serif;
   position: absolute;
-  color: var(--color-primary);
+  color: var(--color-blackwhite);
   font-size: 11rem;
   white-space: nowrap;
   z-index: 120;
-  bottom: 40vh;
+  bottom: 45vh;
   cursor: pointer;
   text-wrap: pretty;
 }
@@ -528,6 +530,7 @@ hr {
   font-size: 1.75rem;
   font-weight: 200;
   color: var(--color-secondary);
+  line-height: 1.25;
 }
 
 .project-description {
@@ -538,7 +541,7 @@ hr {
   bottom: 30%;
   padding: 10px;
   font-weight: 400;
-  color: var(--color-primary);
+  color: var(--color-blackwhite);
   text-wrap: pretty;
 }
 

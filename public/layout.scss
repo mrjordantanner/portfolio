@@ -264,9 +264,9 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
-    padding: 0 40px 0 0;
+    padding: 125px 20px 0 0;
     width: 100vw;
     height: 100vh;
 
@@ -279,11 +279,11 @@
 .project-title {
     font-family: Akzidensk, Arial, Helvetica, sans-serif;
     position: absolute;
-    color: var(--color-primary);
+    color: var(--color-blackwhite);
     font-size: 11rem;
     white-space: nowrap;
     z-index: 120;
-    bottom: 40vh;
+    bottom: 45vh;
     cursor: pointer;
     text-wrap: pretty;
 
@@ -302,6 +302,7 @@
         font-size: 1.75rem;
         font-weight: 200;
         color: var(--color-secondary);
+        line-height: 1.25;
     }
 }
 
@@ -313,7 +314,7 @@
     bottom: 30%;
     padding: 10px;
     font-weight: 400;
-    color: var(--color-primary);
+    color: var(--color-blackwhite);
     text-wrap: pretty;
 }
 

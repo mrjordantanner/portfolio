@@ -47,7 +47,8 @@ $bg-dark: #2b3654;
 $bg-light: rgb(193, 178, 178);
 
 // $primary-dark: #91a3c7;
-$primary-dark: #93aee4;
+//primary-dark: #93aee4;
+$primary-dark: white;
 $primary-light: rgb(55, 37, 37);
 
 $secondary-dark: #f4b570;
@@ -80,6 +81,7 @@ $angled-line-width: 150px;
     --color-footer-color: #{$bg-dark};
     --color-nav-button: #{$color-nav-button-dark};
     --color-divider: #{$color-divider-dark};
+    --color-blackwhite: white;
 }
 
 // Alternate Theme
@@ -93,6 +95,7 @@ $angled-line-width: 150px;
     --color-footer-color: #{$bg-light};
     --color-nav-button: #{$color-nav-button-light};
     --color-divider: #{$color-divider-light};
+    --color-blackwhite: black;
 }
 
 html {

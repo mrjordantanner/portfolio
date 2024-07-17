@@ -24,13 +24,14 @@
 :root {
   --scrollbar-opacity: 0.5;
   --color-background: #2b3654;
-  --color-primary: #93aee4;
+  --color-primary: white;
   --color-secondary: #f4b570;
   --color-link: cyan;
   --color-bg-footer: #f4b570;
   --color-footer-color: #2b3654;
   --color-nav-button: #f4b570;
   --color-divider: #344162;
+  --color-blackwhite: white;
 }
 
 .alternate {
@@ -43,6 +44,7 @@
   --color-footer-color: #c1b2b2;
   --color-nav-button: darkslateblue;
   --color-divider: #a29d95;
+  --color-blackwhite: black;
 }
 
 html {
@@ -275,12 +277,12 @@ hr {
   }
 
   .theme-switch-container {
-    right: -0.75rem;
+    right: 0;
     top: 1rem;
   }
 
   #theme-toggle {
-    right: 1rem;
+    right: 2rem;
     top: 2rem;
     height: 2rem;
     width: 2rem;
@@ -301,6 +303,9 @@ hr {
     justify-content: center;
     align-items: center;
   }
+  .header .top-fill {
+    height: 35vh;
+  }
   .header .headline {
     font-size: 20vmin;
   }
@@ -311,7 +316,6 @@ hr {
     min-height: 60px;
     min-width: 200px;
     background-color: var(--color-secondary);
-    background-color: black;
     color: white;
   }
 
@@ -369,9 +373,6 @@ hr {
     filter: grayscale(1) brightness(1.5);
   }
 
-  .project-number {
-    padding: 5vh 10px 600px 75vw;
-  }
   .project-number .text {
     font-size: 20vmin;
   }
@@ -386,6 +387,10 @@ hr {
     left: 7%;
     bottom: 45vh;
     width: 80%;
+    padding: 10px;
+  }
+  .project-subtitle .text {
+    font-size: 1.5rem;
   }
 
   .project-description {
@@ -406,6 +411,12 @@ hr {
     font-size: 1rem;
   }
 
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .contact-container .container {
     position: absolute;
     bottom: 0px;
@@ -415,15 +426,13 @@ hr {
     align-items: center;
   }
   .contact-container .contact-link-container {
-    justify-content: flex-start;
-    align-items: start;
     width: 95vw;
+    padding-left: 50px;
   }
   .contact-container .contact-link-container .contact-link {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px;
     width: 100%;
     height: 100%;
     transition: all 0.15s;
