@@ -49,7 +49,9 @@
 
 html {
   height: 100vh;
-  overflow: hidden;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
@@ -62,7 +64,16 @@ body {
   color: var(--color-primary);
   margin: 0px;
   opacity: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
   transition: background 0.35s ease-in-out, color 2.5s ease-in-out, opacity 1s ease-in-out;
+}
+body section {
+  width: 100vw;
+  height: 100vh;
+  padding: 0rem;
+  transition: background 3s;
+  overflow-x: hidden;
 }
 body p {
   font-family: "Akzidensk Light", sans-serif;
@@ -264,172 +275,254 @@ hr {
     display: none !important;
   }
 
-  .mobile-only {
-    display: flex !important;
-  }
-
-  .top {
-    top: 0px;
-  }
-
-  .bottom {
-    bottom: 0px;
-  }
-
   .theme-switch-container {
+    position: fixed;
     right: 0;
     top: 1rem;
   }
 
   #theme-toggle {
+    position: fixed;
     right: 2rem;
     top: 2rem;
     height: 2rem;
     width: 2rem;
   }
 
-  .button-container {
+  .mobile-only {
+    display: block !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .mobile-only section {
+    height: 99.75vh;
+    display: block !important;
+    border: 1px solid blue;
+  }
+  .mobile-only .flex-section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobile-only .divider-mobile {
+    display: block;
+    position: absolute;
+    height: 2px;
+    bottom: -15px;
+    background: var(--color-divider);
+    bottom: unset;
+    display: flex;
+    position: relative;
+    left: 15vw;
+    width: 70vw;
+    height: 10vh;
+    background-color: var(--color-background);
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+  }
+  .mobile-only .top {
+    position: relative;
+    top: 0px;
+  }
+  .mobile-only .bottom {
+    position: relative;
+    bottom: 0px;
+  }
+  .mobile-only .button-container {
     padding: 0px 20px;
   }
-
-  .next-button {
+  .mobile-only .next-button {
     position: relative;
     bottom: 20px;
   }
-
-  .header {
+  .mobile-only .header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .header .top-fill {
-    height: 35vh;
+  .mobile-only .header .top-fill {
+    top: -200px;
+    padding: 0;
+    position: relative;
+    display: flex;
+    height: 25vh;
+    z-index: -10;
   }
-  .header .headline {
+  .mobile-only .header .headline {
     font-size: 20vmin;
   }
-
-  .intro-button {
+  .mobile-only .intro-button {
+    margin: 15px;
     padding: 15px;
     width: 66%;
-    min-height: 60px;
+    height: 50px;
+    min-height: 50px;
     min-width: 200px;
     background-color: var(--color-secondary);
     color: white;
+    font-size: 1.25rem;
   }
-
-  .intro-mobile {
-    height: 100vh;
+  .mobile-only .intro-mobile {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
   }
-  .intro-mobile .name {
+  .mobile-only .intro-mobile .name {
     color: var(--color-secondary);
     text-align: right;
-    padding-top: 8rem;
-    padding-bottom: 0rem;
     width: 90vw;
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
-  .intro-mobile .line {
+  .mobile-only .intro-mobile .line {
     text-align: center;
-    padding: 2rem 0rem;
+    padding: 1rem 0rem;
     width: 90%;
   }
-  .intro-mobile .one {
+  .mobile-only .intro-mobile .one {
     text-align: right;
+    font-size: 2rem;
     color: var(--color-secondary);
     font-weight: 200;
   }
-  .intro-mobile .two {
-    font-weight: 600;
+  .mobile-only .intro-mobile .two {
+    font-weight: 400;
     color: var(--color-primary);
-    width: 80%;
+    width: 90%;
   }
-  .intro-mobile .three {
-    font-weight: 600;
+  .mobile-only .intro-mobile .three {
+    font-weight: 400;
     color: var(--color-primary);
-    width: 50%;
+    width: 90%;
     padding: 0rem 0rem;
   }
-
-  .photo-container {
+  .mobile-only .photo-container {
+    position: relative;
+    display: block;
+    height: 50vh;
+    width: auto;
     z-index: -10;
+    top: 0px;
+    left: 0px;
+    padding: 15px;
+  }
+  .mobile-only .photo-container .img-headshot {
+    height: 100%;
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    opacity: 1;
+    margin: 0;
+    filter: grayscale(0) brightness(1.25);
+  }
+  .mobile-only .project-container {
+    padding: 80px 0 80px 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mobile-only .project-number {
+    padding: 0;
+  }
+  .mobile-only .project-number .text {
+    font-size: 20vmin;
+  }
+  .mobile-only .project-title {
+    position: relative;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 7rem;
+    bottom: unset;
+    padding: 0 0 0 20px;
+  }
+  .mobile-only .project-subtitle {
+    flex: 0.5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    position: relative;
+    top: unset;
+    bottom: unset;
+    left: unset;
+    padding: 0 0 0 25px;
   }
-  .photo-container .img-headshot {
-    height: 100vh;
-    border: 0px;
-    border-radius: 0px;
-    opacity: 0.2;
-    margin: 0;
-    filter: grayscale(1) brightness(1.5);
-  }
-
-  .project-number .text {
-    font-size: 20vmin;
-  }
-
-  .project-title {
-    bottom: 50%;
-    font-size: 7rem;
-    left: 15px;
-  }
-
-  .project-subtitle {
-    left: 7%;
-    bottom: 45vh;
-    width: 80%;
-    padding: 10px;
-  }
-  .project-subtitle .text {
+  .mobile-only .project-subtitle .text {
     font-size: 1.5rem;
   }
-
-  .project-description {
-    top: 55%;
-  }
-
-  .project-link-container {
-    flex-direction: column;
+  .mobile-only .project-description {
+    flex: 1;
+    position: relative;
+    font-size: 1.25rem;
+    top: unset;
     bottom: unset;
-    top: 75%;
+    left: unset;
+    padding: 0 0 0 25px;
   }
-
-  .project-link-button {
+  .mobile-only .project-link-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    top: unset;
+    bottom: unset;
+    left: unset;
+    width: 75%;
+    padding: 0 30px;
+  }
+  .mobile-only .project-link-container .project-link-button {
     background-color: black;
     color: white;
     max-height: 50px;
     margin: 5px;
     font-size: 1rem;
   }
-
-  .contact-container {
+  .mobile-only .project-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 0.3s;
+    z-index: -10;
+    object-fit: cover;
+  }
+  .mobile-only .project-image img {
+    height: 100vh;
+    object-fit: cover;
+    margin: 0px 0vw;
+    opacity: 0.35;
+    z-index: -5;
+  }
+  .mobile-only .contact-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
   }
-  .contact-container .container {
-    position: absolute;
-    bottom: 0px;
-    height: 100vh;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
+  .mobile-only .contact-container .container {
+    position: relative;
+    left: 0px;
+    justify-content: center;
+    align-items: flex-end;
+    border: 1px solid red;
   }
-  .contact-container .contact-link-container {
+  .mobile-only .contact-container .contact-link-container {
     width: 95vw;
-    padding-left: 50px;
   }
-  .contact-container .contact-link-container .contact-link {
+  .mobile-only .contact-container .contact-link-container .contact-link {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -437,15 +530,16 @@ hr {
     height: 100%;
     transition: all 0.15s;
   }
-  .contact-container .contact-link-container .contact-link .text {
+  .mobile-only .contact-container .contact-link-container .contact-link .text {
     font-size: 6rem;
     -webkit-text-stroke: 0.5px var(--color-background);
   }
-
-  .footer-container {
+  .mobile-only .footer-container {
+    position: relative;
     justify-content: center;
+    bottom: 0px;
   }
-  .footer-container .footer-text {
+  .mobile-only .footer-container .footer-text {
     color: var(--color-secondary);
     font-size: 0.85rem;
     padding: 2px;

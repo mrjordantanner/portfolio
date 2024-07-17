@@ -49,7 +49,9 @@
 
 html {
   height: 100vh;
-  overflow: hidden;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
@@ -62,7 +64,16 @@ body {
   color: var(--color-primary);
   margin: 0px;
   opacity: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
   transition: background 0.35s ease-in-out, color 2.5s ease-in-out, opacity 1s ease-in-out;
+}
+body section {
+  width: 100vw;
+  height: 100vh;
+  padding: 0rem;
+  transition: background 3s;
+  overflow-x: hidden;
 }
 body p {
   font-family: "Akzidensk Light", sans-serif;

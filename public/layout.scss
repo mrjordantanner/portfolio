@@ -65,13 +65,6 @@
     background: var(--color-divider);
 }
 
-@mixin divider {
-    display: block;
-    position: absolute;
-    height: 2px;
-    bottom: -15px;
-    background: var(--color-divider);
-}
 
 .divider-partial {
     @include divider;
@@ -100,29 +93,11 @@
 @mixin fullscreen {
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .fullscreen {
     @include fullscreen;
-}
-
-@mixin section {
-    width: 100vw;
-    height: 100vh;
-    padding: 0rem;
-    transition: background 3s;
-
-}
-.section {
-    @include section; 
-
-
-}
-
-.section-half {
-    @include section;
-    height: 50vh; 
-    min-height: 50vh;
 }
 
 .scroll-container {
@@ -131,7 +106,7 @@
 }
 
 .desktop-only {
-    display: flex !important
+    display: block !important
 }
 
 .desktop-only-block {
@@ -326,26 +301,26 @@
     justify-content: flex-start;
     bottom: 15%;
     z-index: -5;
-}
 
-.project-link-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-secondary);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 2.5vw;
-    padding: 20px 2.5vw;
-    z-index: 15;
-    border: 2px solid var(--color-secondary);
-    border-radius: 10px;
-
-    &:hover {
-        background-color:black;
-        color: white;
+    .project-link-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-secondary);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 2.5vw;
+        padding: 20px 2.5vw;
+        z-index: 15;
+        border: 2px solid var(--color-secondary);
+        border-radius: 10px;
+    
+        &:hover {
+            background-color:black;
+            color: white;
+        }
+      
     }
-  
 }
 
 .project-image {
