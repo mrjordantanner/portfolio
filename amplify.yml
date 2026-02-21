@@ -8,10 +8,8 @@ frontend:
     build:
       commands:
         - npx parcel build ./index.html --dist-dir dist/portfolio/v1 --public-url /portfolio/v1/
-        - test -f dist/portfolio/v1/index.html || (echo "Build failed: dist/portfolio/v1/index.html not found" && exit 1)
-        - |
-          mkdir -p dist
-          echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Redirecting...</title><meta http-equiv="refresh" content="0;url=/portfolio/v1/"><script>window.location.replace("/portfolio/v1/");</script></head><body><p>Redirecting to <a href="/portfolio/v1/">portfolio</a>...</p></body></html>' > dist/index.html
+        - test -f dist/portfolio/v1/index.html || (echo "Build failed" && exit 1)
+        - mkdir -p dist && cp redirect-index.html dist/index.html
   artifacts:
     baseDirectory: dist
     files:
