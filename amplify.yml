@@ -1,19 +1,10 @@
 version: 1
 frontend:
   phases:
-    preBuild:
-      commands:
-        - rm -rf dist .parcel-cache
-        - npm ci --cache .npm --prefer-offline
     build:
       commands:
-        - npx parcel build ./index.html --dist-dir dist/portfolio/v1 --public-url /portfolio/v1/
-        - test -f dist/portfolio/v1/index.html || (echo "Build failed" && exit 1)
-        - mkdir -p dist && cp redirect-index.html dist/index.html
+        - test -f site/index.html
   artifacts:
-    baseDirectory: dist
+    baseDirectory: site
     files:
       - '**/*'
-  cache:
-    paths:
-      - .npm/**/*
